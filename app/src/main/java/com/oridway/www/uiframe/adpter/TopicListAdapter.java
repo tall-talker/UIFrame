@@ -47,7 +47,6 @@ public class TopicListAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mLayoutInflater.inflate(R.layout.item_topic_list, null);
             holder = new ViewHolder();
-            holder.author = convertView.findViewById(R.id.topic_author);
             holder.desc = convertView.findViewById(R.id.topic_desc);
             holder.title = convertView.findViewById(R.id.topic_title);
             holder.date = convertView.findViewById(R.id.topic_date);
@@ -60,7 +59,7 @@ public class TopicListAdapter extends BaseAdapter {
         if (clsTopic.getIsCheckBoxVisible()) {
             holder.checkbox.setVisibility(View.VISIBLE);
         } else {
-            holder.checkbox.setVisibility(View.INVISIBLE);
+            holder.checkbox.setVisibility(View.GONE);
         }
 
         if (clsTopic.getIsChecked()) {
@@ -71,14 +70,12 @@ public class TopicListAdapter extends BaseAdapter {
 
         holder.title.setText(clsTopic.getTitle());
         holder.desc.setText(clsTopic.getTopicDesc());
-        holder.author.setText(clsTopic.getAuthor());
         holder.date.setText(clsTopic.getCreateDate());
         return convertView;
     }
 
     private class ViewHolder {
         ImageView checkbox;
-        TextView author;
         TextView desc;
         TextView title;
         TextView date;

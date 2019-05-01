@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oridway.www.uiframe.R;
 import com.oridway.www.uiframe.adpter.TopicListAdapter;
@@ -55,7 +56,6 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
     protected void initData() {
 
         mContext = this;
-//        getSectionList();
         initOfflineData(20);
         isEditable = false;
     }
@@ -98,6 +98,7 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
         title.setText("二级列表");
         filter.setVisibility(View.GONE);
         btnDelete.setVisibility(View.GONE);
+        edit.setVisibility(View.VISIBLE);
     }
 
     protected void initListener() {
@@ -142,17 +143,19 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
             switchEditable();
         }
         if (v.getId() == R.id.btn_delete_topic) {
+            Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void switchEditable() {
+        setIsEditable(!getIsEditable());
+
         for (ClsTopic clsTopic : mClsTopicList) {
-            clsTopic.setIsCheckBoxVisible(!clsTopic.getIsCheckBoxVisible());
+            clsTopic.setIsCheckBoxVisible(getIsEditable());
             clsTopic.setIsChecked(false);
         }
         mAdapter.notifyDataSetChanged();
         btnDelete.setVisibility(View.GONE);
-        setIsEditable(!getIsEditable());
     }
 
     public boolean getIsEditable() {

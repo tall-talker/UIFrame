@@ -39,26 +39,6 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/discuss_change_logo"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/ic_account_circle_black_24dp"
-            android:gravity="center"
-            android:text="更换
-            LOGO"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/discuss_change_owner"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/ic_group_black_24dp"
-            android:gravity="center"
-            android:text="更换
-            版主"
-            android:textColor="@color/black" />
-
-        <TextView
             android:id="@+id/discuss_close"
             android:layout_width="60dp"
             android:layout_height="wrap_content"

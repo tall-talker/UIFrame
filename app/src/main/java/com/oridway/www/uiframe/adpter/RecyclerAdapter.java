@@ -19,12 +19,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ReportOnlineRecyclerAdapter extends RecyclerView.Adapter implements OnlineReportListCallback.ItemTouchMoveListener, View.OnClickListener {
+public class RecyclerAdapter extends RecyclerView.Adapter implements OnlineReportListCallback.ItemTouchMoveListener, View.OnClickListener {
 
     private List<ClsOnlineReport> mList;
     private Callback mCallback;
 
-    public ReportOnlineRecyclerAdapter(List<ClsOnlineReport> mList, Callback mCallback) {
+    public RecyclerAdapter(List<ClsOnlineReport> mList, Callback mCallback) {
         this.mList = mList;
         this.mCallback = mCallback;
     }

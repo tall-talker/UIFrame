@@ -58,7 +58,6 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
         mContext = this;
         getOfflineData(20);
         isEditable = false;
-//        getReplyList();
     }
 
     private void getOfflineData(int num) {
@@ -87,6 +86,7 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
         title.setText("三级列表");
         filter.setVisibility(View.GONE);
         btnDelete.setVisibility(View.GONE);
+        edit.setVisibility(View.VISIBLE);
     }
 
     protected void initListener() {
@@ -129,18 +129,19 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
         }
 
         if (v.getId() == R.id.btn_delete_topic) {
-
+            Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void switchEditable() {
+        setIsEditable(!getIsEditable());
+
         for (ClsReply clsReply : mClsReplyList) {
-            clsReply.setIsCheckBoxVisible(!clsReply.getIsCheckBoxVisible());
+            clsReply.setIsCheckBoxVisible(getIsEditable());
             clsReply.setIsChecked(false);
         }
         mAdapter.notifyDataSetChanged();
         btnDelete.setVisibility(View.GONE);
-        setIsEditable(!getIsEditable());
     }
 
     public boolean getIsEditable() {

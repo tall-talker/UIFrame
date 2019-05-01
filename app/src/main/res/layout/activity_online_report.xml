@@ -3,7 +3,7 @@
     xmlns:dslv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/gray_cc"
     android:orientation="vertical">
 
 
@@ -23,10 +23,9 @@
 
         <TextView
             android:id="@+id/btn_delete"
-            android:layout_width="0dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="1"
             android:drawableTop="@drawable/ic_delete_black_24dp"
             android:gravity="center"
             android:text="删除"
@@ -34,10 +33,9 @@
 
         <TextView
             android:id="@+id/btn_release"
-            android:layout_width="0dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="1"
             android:drawableTop="@drawable/ic_send_black_24dp"
             android:gravity="center"
             android:text="发布"
@@ -45,10 +43,9 @@
 
         <TextView
             android:id="@+id/btn_close"
-            android:layout_width="0dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="1"
             android:drawableTop="@drawable/ic_close_black_24dp"
             android:gravity="center"
             android:text="关闭"
@@ -56,10 +53,9 @@
 
         <TextView
             android:id="@+id/btn_top"
-            android:layout_width="0dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="1"
             android:drawableTop="@drawable/ic_check_black_24dp"
             android:gravity="center"
             android:text="置顶"

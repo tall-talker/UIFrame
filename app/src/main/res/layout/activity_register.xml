@@ -17,65 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout style="@style/UserInputLayout">
-
-                <TextView
-                    style="@style/UserInputTitle"
-                    android:text="工号：" />
-
-                <TextView
-                    android:id="@+id/tv_user_number"
-                    style="@style/UserInputContent" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/UserInputTitle"
-                    android:text="用户类型：" />
-
-                <RadioGroup
-                    android:id="@+id/rg_user_type"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/rb1_user_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:checked="true"
-                        android:text="一般员工"
-                        android:textSize="14sp" />
-
-                    <RadioButton
-                        android:id="@+id/rb2_user_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="高管"
-                        android:textSize="14sp" />
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout style="@style/UserInputLayout">
-
-                <TextView
-                    style="@style/UserInputTitle"
-                    android:labelFor="@+id/et_work_number"
-                    android:text="工作证号：" />
-
-                <EditText
-                    android:id="@+id/et_work_number"
-                    style="@style/UserInputContent"
-                    android:inputType="text" />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

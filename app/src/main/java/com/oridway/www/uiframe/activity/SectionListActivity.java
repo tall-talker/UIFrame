@@ -41,10 +41,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     LinearLayout mToolbar;
     @BindView(R.id.discuss_edit)
     TextView btnEdit;
-    @BindView(R.id.discuss_change_logo)
-    TextView btnChangeLogo;
-    @BindView(R.id.discuss_change_owner)
-    TextView btnChangeOwner;
     @BindView(R.id.discuss_close)
     TextView btnClose;
     @BindView(R.id.discuss_open)
@@ -121,8 +117,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     protected void initListener() {
         back.setOnClickListener(this);
         edit.setOnClickListener(this);
-        btnChangeLogo.setOnClickListener(this);
-        btnChangeOwner.setOnClickListener(this);
         btnClose.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnOpen.setOnClickListener(this);
@@ -166,14 +160,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         }
         if (v.getId() == R.id.discuss_edit) {
             checkOperation(SectionEditActivity.class);
-        }
-
-        if (v.getId() == R.id.discuss_change_owner) {
-            checkOperation(SectionChangeManagerActivity.class);
-        }
-
-        if (v.getId() == R.id.discuss_change_logo) {
-            checkOperation(SectionChangeLogoActivity.class);
         }
 
         if (v.getId() == R.id.filter_tv) {

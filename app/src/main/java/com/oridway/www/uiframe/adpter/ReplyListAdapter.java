@@ -62,7 +62,7 @@ public class ReplyListAdapter extends BaseAdapter {
         if (clsReply.getIsCheckBoxVisible()) {
             holder.checkbox.setVisibility(View.VISIBLE);
         } else {
-            holder.checkbox.setVisibility(View.INVISIBLE);
+            holder.checkbox.setVisibility(View.GONE);
         }
 
         if (clsReply.getIsChecked()) {

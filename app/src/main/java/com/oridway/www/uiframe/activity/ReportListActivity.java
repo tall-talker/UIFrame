@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.oridway.www.uiframe.R;
-import com.oridway.www.uiframe.adpter.ReportOnlineRecyclerAdapter;
+import com.oridway.www.uiframe.adpter.RecyclerAdapter;
 import com.oridway.www.uiframe.bean.ClsOnlineReport;
 import com.oridway.www.uiframe.utils.OnlineReportListCallback;
 
@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
  * 5.只有选中至少一个条目才会弹出工具栏
  */
 
-public class ReportListActivity extends AppCompatActivity implements View.OnClickListener, ReportOnlineRecyclerAdapter.Callback {
+public class ReportListActivity extends AppCompatActivity implements View.OnClickListener, RecyclerAdapter.Callback {
 
     private static final String TAG = "ReportListActivity";
 
@@ -58,7 +58,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     private Context mContext;
     private boolean isEditable;
-    private ReportOnlineRecyclerAdapter mAdapter;
+    private RecyclerAdapter mAdapter;
     private List<ClsOnlineReport> mClsOnlineReportList;
     private ItemTouchHelper itemTouchHelper;
 
@@ -105,7 +105,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         }
 
         mClsOnlineReportList = clsOnlineReportList;
-        mAdapter = new ReportOnlineRecyclerAdapter(mClsOnlineReportList, this);
+        mAdapter = new RecyclerAdapter(mClsOnlineReportList, this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
