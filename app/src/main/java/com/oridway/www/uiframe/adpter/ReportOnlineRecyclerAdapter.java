@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.oridway.www.uiframe.R;
@@ -46,8 +47,8 @@ public class ReportOnlineRecyclerAdapter extends RecyclerView.Adapter implements
             itemHolder.checkbox.setVisibility(View.VISIBLE);
             itemHolder.drag.setVisibility(View.VISIBLE);
         } else {
-            itemHolder.checkbox.setVisibility(View.INVISIBLE);
-            itemHolder.drag.setVisibility(View.INVISIBLE);
+            itemHolder.checkbox.setVisibility(View.GONE);
+            itemHolder.drag.setVisibility(View.GONE);
         }
 
         if (clsOnlineReport.getIsChecked()) {
@@ -56,17 +57,11 @@ public class ReportOnlineRecyclerAdapter extends RecyclerView.Adapter implements
             itemHolder.checkbox.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
         }
 
-        itemHolder.title.setTag(position);
-        itemHolder.author.setTag(position);
-        itemHolder.time.setTag(position);
-        itemHolder.checkbox.setTag(position);
-        itemHolder.drag.setTag(position);
+        itemHolder.parent1.setTag(position);
+        itemHolder.parent2.setTag(position);
 
-        itemHolder.drag.setOnClickListener(this);
-        itemHolder.title.setOnClickListener(this);
-        itemHolder.author.setOnClickListener(this);
-        itemHolder.time.setOnClickListener(this);
-        itemHolder.checkbox.setOnClickListener(this);
+        itemHolder.parent1.setOnClickListener(this);
+        itemHolder.parent2.setOnClickListener(this);
 
         itemHolder.time.setText(clsOnlineReport.getBulletinTime());
         itemHolder.title.setText(clsOnlineReport.getBulletinTitle());
@@ -97,6 +92,10 @@ public class ReportOnlineRecyclerAdapter extends RecyclerView.Adapter implements
         ImageView drag;
         @BindView(R.id.online_report_checkbox)
         ImageView checkbox;
+        @BindView(R.id.view_parent_1)
+        LinearLayout parent1;
+        @BindView(R.id.view_parent_2)
+        LinearLayout parent2;
 
         ItemHolder(View itemView) {
             super(itemView);

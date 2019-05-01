@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +34,8 @@ import butterknife.ButterKnife;
  */
 
 public class ReportListActivity extends AppCompatActivity implements View.OnClickListener, ReportOnlineRecyclerAdapter.Callback {
+
+    private static final String TAG = "ReportListActivity";
 
     @BindView(R.id.tv_title_middle)
     TextView title;
@@ -72,12 +75,12 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     protected void initData() {
         mContext = this;
-        getOfflineData(60);
+        getOfflineData(10);
 
+        setIsEditable(false);
         OnlineReportListCallback callback = new OnlineReportListCallback(mAdapter);
         itemTouchHelper = new ItemTouchHelper(callback);
 
-        setIsEditable(true);
         setRecyclerViewDraggable(false);
     }
 
@@ -112,73 +115,81 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         hideBottomMenu();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-//        mRecyclerView.addItemDecoration();
     }
 
     protected void initListener() {
         filter.setOnClickListener(this);
         backButton.setOnClickListener(this);
         edit.setOnClickListener(this);
+        delete.setOnClickListener(this);
+        release.setOnClickListener(this);
+        close.setOnClickListener(this);
+        top.setOnClickListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (getIsEditable()) {
+            switchEditable();
+        } else {
+            finish();
+        }
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.title_left) {
-            finish();
+            if (getIsEditable()) {
+                switchEditable();
+            } else {
+                finish();
+            }
         }
         if (v.getId() == R.id.edit_tv) {
-            for (ClsOnlineReport clsOnlineReport : mClsOnlineReportList) {
-                clsOnlineReport.setIsCheckBoxVisible(!clsOnlineReport.getIsCheckBoxVisible());
-                clsOnlineReport.setIsChecked(false);
-            }
-
-            mAdapter.notifyDataSetChanged();
-            hideBottomMenu();
-
-            setRecyclerViewDraggable(getIsEditable());
-            setIsEditable(!getIsEditable());
+            switchEditable();
         }
+
+        switch (v.getId()) {
+
+            case R.id.btn_top:
+            case R.id.btn_close:
+            case R.id.btn_release:
+            case R.id.btn_delete:
+                Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
     @Override
     public void onClick(View v, int position) {
 
+
         switch (v.getId()) {
-            case R.id.online_report_author:
-            case R.id.online_report_time:
-            case R.id.online_report_title:
-            case R.id.online_report_checkbox:
-
+            case R.id.view_parent_1:
+            case R.id.view_parent_2:
                 ClsOnlineReport clsOnlineReport = mClsOnlineReportList.get(position);
-                if (clsOnlineReport.getIsCheckBoxVisible()) {
-                    clsOnlineReport.setIsChecked(!clsOnlineReport.getIsChecked());
-                    mAdapter.notifyDataSetChanged();
-                }
+                if (getIsEditable()) {
 
-                for (int i = 0; i < mClsOnlineReportList.size(); i++) {
-                    ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
-                    if (onlineReport.getIsChecked()) {
-                        showBottomMenu();
-                        break;
+                    if (clsOnlineReport.getIsCheckBoxVisible()) {
+                        clsOnlineReport.setIsChecked(!clsOnlineReport.getIsChecked());
+                        mAdapter.notifyDataSetChanged();
                     }
-                    if (i == mClsOnlineReportList.size() - 1) {
-                        hideBottomMenu();
-                    }
-                }
-        }
 
-        if (v.getId() == R.id.btn_top) {
-            Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_LONG).show();
-        }
-        if (v.getId() == R.id.btn_close) {
-            Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_LONG).show();
-        }
-        if (v.getId() == R.id.btn_release) {
-            Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_LONG).show();
-        }
-        if (v.getId() == R.id.btn_delete) {
-            Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_LONG).show();
+                    for (int i = 0; i < mClsOnlineReportList.size(); i++) {
+                        ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
+                        if (onlineReport.getIsChecked()) {
+                            showBottomMenu();
+                            break;
+                        }
+                        if (i == mClsOnlineReportList.size() - 1) {
+                            hideBottomMenu();
+                        }
+                    }
+                } else {
+                    Toast.makeText(mContext, clsOnlineReport.toString(), Toast.LENGTH_SHORT).show();
+                }
         }
     }
 
@@ -194,6 +205,21 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         top.setVisibility(View.VISIBLE);
         release.setVisibility(View.VISIBLE);
         close.setVisibility(View.VISIBLE);
+    }
+
+    private void switchEditable() {
+
+        setIsEditable(!getIsEditable());
+
+        for (ClsOnlineReport clsOnlineReport : mClsOnlineReportList) {
+            clsOnlineReport.setIsCheckBoxVisible(getIsEditable());
+            clsOnlineReport.setIsChecked(false);
+        }
+
+        mAdapter.notifyDataSetChanged();
+        hideBottomMenu();
+
+        setRecyclerViewDraggable(getIsEditable());
     }
 
     public boolean getIsEditable() {
