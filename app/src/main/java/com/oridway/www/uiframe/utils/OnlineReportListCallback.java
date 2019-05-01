@@ -25,7 +25,7 @@ public class OnlineReportListCallback extends ItemTouchHelper.Callback {
     public OnlineReportListCallback(ItemTouchMoveListener moveListener) {
         this.moveListener = moveListener;
 
-        int rgb = Color.rgb(0xe1, 0xfc, 0xf6);
+        int rgb = Color.rgb(0xff, 0xff, 0xff);
         drawable = new ColorDrawable(rgb);
     }
 
@@ -55,11 +55,11 @@ public class OnlineReportListCallback extends ItemTouchHelper.Callback {
         super.onSelectedChanged(viewHolder, actionState);
 
         if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
-            viewHolder.itemView.setBackground(drawable);
+            viewHolder.itemView.setBackground(null);
         }
 
         if (actionState == ItemTouchHelper.ACTION_STATE_IDLE) {
-            srcHolder.itemView.setBackground(null);
+            srcHolder.itemView.setBackground(drawable);
         }
     }
 }

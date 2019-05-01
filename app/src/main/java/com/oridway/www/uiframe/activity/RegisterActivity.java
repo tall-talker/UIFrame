@@ -125,7 +125,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener, 
 
         if (v.getId() == R.id.clear_roles) {
             mClsRoleList.clear();
-            //这里如果写出 mClsRoleList = getOfflineData(1)；无效
             mClsRoleList.addAll(getOfflineData(1));
             mAdapter.notifyDataSetChanged();
         }

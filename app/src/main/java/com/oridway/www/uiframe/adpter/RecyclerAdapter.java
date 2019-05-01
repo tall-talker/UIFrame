@@ -24,8 +24,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter implements OnlineRepor
     private List<ClsOnlineReport> mList;
     private Callback mCallback;
 
-    public RecyclerAdapter(List<ClsOnlineReport> mList, Callback mCallback) {
+    public RecyclerAdapter(List<ClsOnlineReport> mList) {
         this.mList = mList;
+    }
+
+    public void setmCallback(Callback mCallback) {
         this.mCallback = mCallback;
     }
 

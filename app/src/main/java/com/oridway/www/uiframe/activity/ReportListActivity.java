@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
  * 5.只有选中至少一个条目才会弹出工具栏
  */
 
-public class ReportListActivity extends AppCompatActivity implements View.OnClickListener, RecyclerAdapter.Callback {
+public class ReportListActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "ReportListActivity";
 
@@ -105,7 +105,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         }
 
         mClsOnlineReportList = clsOnlineReportList;
-        mAdapter = new RecyclerAdapter(mClsOnlineReportList, this);
+        mAdapter = new RecyclerAdapter(mClsOnlineReportList);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -125,6 +125,33 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         release.setOnClickListener(this);
         close.setOnClickListener(this);
         top.setOnClickListener(this);
+
+        mAdapter.setmCallback((v, position) -> {
+            switch (v.getId()) {
+                case R.id.view_parent_1:
+                case R.id.view_parent_2:
+                    ClsOnlineReport clsOnlineReport = mClsOnlineReportList.get(position);
+                    if (getIsEditable()) {
+                        if (clsOnlineReport.getIsCheckBoxVisible()) {
+                            clsOnlineReport.setIsChecked(!clsOnlineReport.getIsChecked());
+                            mAdapter.notifyDataSetChanged();
+                        }
+
+                        for (int i = 0; i < mClsOnlineReportList.size(); i++) {
+                            ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
+                            if (onlineReport.getIsChecked()) {
+                                showBottomMenu();
+                                break;
+                            }
+                            if (i == mClsOnlineReportList.size() - 1) {
+                                hideBottomMenu();
+                            }
+                        }
+                    } else {
+                        Toast.makeText(mContext, clsOnlineReport.toString(), Toast.LENGTH_SHORT).show();
+                    }
+            }
+        });
     }
 
     @Override
@@ -161,37 +188,6 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-
-    @Override
-    public void onClick(View v, int position) {
-
-
-        switch (v.getId()) {
-            case R.id.view_parent_1:
-            case R.id.view_parent_2:
-                ClsOnlineReport clsOnlineReport = mClsOnlineReportList.get(position);
-                if (getIsEditable()) {
-
-                    if (clsOnlineReport.getIsCheckBoxVisible()) {
-                        clsOnlineReport.setIsChecked(!clsOnlineReport.getIsChecked());
-                        mAdapter.notifyDataSetChanged();
-                    }
-
-                    for (int i = 0; i < mClsOnlineReportList.size(); i++) {
-                        ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
-                        if (onlineReport.getIsChecked()) {
-                            showBottomMenu();
-                            break;
-                        }
-                        if (i == mClsOnlineReportList.size() - 1) {
-                            hideBottomMenu();
-                        }
-                    }
-                } else {
-                    Toast.makeText(mContext, clsOnlineReport.toString(), Toast.LENGTH_SHORT).show();
-                }
-        }
-    }
 
     private void hideBottomMenu() {
         delete.setVisibility(View.GONE);
