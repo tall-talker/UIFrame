@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:gravity="center_vertical"
+        android:labelFor="@+id/et_user_input"
+        android:text="用户类型"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/et_user_input"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+</LinearLayout>

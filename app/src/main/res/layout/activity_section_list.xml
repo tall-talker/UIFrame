@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ListView
+        android:id="@+id/discuss_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none" />
+
+    <LinearLayout
+        android:id="@+id/discuss_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/discuss_delete"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_delete_black_24dp"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/discuss_edit"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_edit_black_24dp"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/discuss_change_logo"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_account_circle_black_24dp"
+            android:gravity="center"
+            android:text="更换
+            LOGO"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/discuss_change_owner"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_group_black_24dp"
+            android:gravity="center"
+            android:text="更换
+            版主"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/discuss_close"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_close_black_24dp"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/discuss_open"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_check_black_24dp"
+            android:gravity="center"
+            android:text="开放"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</LinearLayout>

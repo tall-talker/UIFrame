@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dslv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/title_bar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/online_report_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btn_delete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_delete_black_24dp"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/btn_release"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_send_black_24dp"
+            android:gravity="center"
+            android:text="发布"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/btn_close"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_close_black_24dp"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/btn_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_check_black_24dp"
+            android:gravity="center"
+            android:text="置顶"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</LinearLayout>
