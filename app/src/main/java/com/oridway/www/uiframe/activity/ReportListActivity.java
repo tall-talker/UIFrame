@@ -112,6 +112,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         hideBottomMenu();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+//        mRecyclerView.addItemDecoration();
     }
 
     protected void initListener() {
