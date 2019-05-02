@@ -56,15 +56,15 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
     protected void initData() {
 
         mContext = this;
+        setIsEditable(false);
         String sectionID = getIntent().getStringExtra("sectionID");
         requestData(sectionID);
 
-        initOfflineData(20);
         mClsTopicList = new ArrayList<>();
         mAdapter = new TopicListAdapter(mClsTopicList, mContext);
         mListView.setAdapter(mAdapter);
 
-        setIsEditable(false);
+        initOfflineData(20);
     }
 
     private void requestData(String sectionID) {

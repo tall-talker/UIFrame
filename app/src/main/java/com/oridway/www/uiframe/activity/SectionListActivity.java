@@ -67,12 +67,12 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     protected void initData() {
         mContext = this;
         setIsEditable(false);
-        initOfflineData(10);
 
         mClsSectionList = new ArrayList<>();
         mAdapter = new SectionListAdapter(mClsSectionList, mContext);
         mListView.setAdapter(mAdapter);
 
+        initOfflineData(10);
     }
 
     private void initOfflineData(int num) {

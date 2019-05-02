@@ -56,6 +56,7 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
     protected void initData() {
 
         mContext = this;
+        setIsEditable(false);
         String topicID = getIntent().getStringExtra("topicID");
         requestData(topicID);
 
@@ -64,7 +65,6 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
         mListView.setAdapter(mAdapter);
 
         getOfflineData(20);
-        setIsEditable(false);
     }
 
     private void requestData(String topicID) {
