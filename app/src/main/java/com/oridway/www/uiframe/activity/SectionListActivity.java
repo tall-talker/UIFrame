@@ -69,6 +69,7 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         setIsEditable(false);
         initOfflineData(10);
 
+        mClsSectionList = new ArrayList<>();
         mAdapter = new SectionListAdapter(mClsSectionList, mContext);
         mListView.setAdapter(mAdapter);
 

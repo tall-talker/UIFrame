@@ -60,6 +60,7 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
         requestData(sectionID);
 
         initOfflineData(20);
+        mClsTopicList = new ArrayList<>();
         mAdapter = new TopicListAdapter(mClsTopicList, mContext);
         mListView.setAdapter(mAdapter);
 

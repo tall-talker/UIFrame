@@ -59,6 +59,7 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
         String topicID = getIntent().getStringExtra("topicID");
         requestData(topicID);
 
+        mClsReplyList = new ArrayList<>();
         mAdapter = new ReplyListAdapter(mClsReplyList, mContext);
         mListView.setAdapter(mAdapter);
 

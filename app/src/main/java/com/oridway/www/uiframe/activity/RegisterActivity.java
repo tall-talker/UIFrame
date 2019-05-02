@@ -4,16 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,10 +17,8 @@ import android.widget.Toast;
 
 import com.oridway.www.uiframe.R;
 import com.oridway.www.uiframe.adpter.RoleCardAdapter;
-import com.oridway.www.uiframe.bean.ClsNormalUser;
 import com.oridway.www.uiframe.bean.ClsRole;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
