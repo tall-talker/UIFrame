@@ -56,8 +56,18 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
     protected void initData() {
 
         mContext = this;
+        String topicID = getIntent().getStringExtra("topicID");
+        requestData(topicID);
+
+        mAdapter = new ReplyListAdapter(mClsReplyList, mContext);
+        mListView.setAdapter(mAdapter);
+
         getOfflineData(20);
-        isEditable = false;
+        setIsEditable(false);
+    }
+
+    private void requestData(String topicID) {
+        Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
     }
 
     private void getOfflineData(int num) {
@@ -77,9 +87,8 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
             clsReplyLists.add(clsReply);
         }
 
-        mClsReplyList = clsReplyLists;
-        mAdapter = new ReplyListAdapter(mClsReplyList, mContext);
-        mListView.setAdapter(mAdapter);
+        mClsReplyList.addAll(clsReplyLists);
+        mAdapter.notifyDataSetChanged();
     }
 
     protected void initView() {
@@ -121,7 +130,11 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
         if (v.getId() == R.id.title_left) {
-            finish();
+            if (getIsEditable()) {
+                switchEditable();
+            } else {
+                finish();
+            }
         }
 
         if (v.getId() == R.id.edit_tv) {
@@ -132,6 +145,17 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
             Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+        if (getIsEditable()) {
+            switchEditable();
+        } else {
+            finish();
+        }
+    }
+
 
     private void switchEditable() {
         setIsEditable(!getIsEditable());

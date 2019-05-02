@@ -66,12 +66,15 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
 
     protected void initData() {
         mContext = this;
-        isEditable = false;
-        initOffonlineData(20);
+        setIsEditable(false);
+        initOfflineData(10);
+
+        mAdapter = new SectionListAdapter(mClsSectionList, mContext);
+        mListView.setAdapter(mAdapter);
 
     }
 
-    private void initOffonlineData(int num) {
+    private void initOfflineData(int num) {
         List<ClsSection> clsSectionList = new ArrayList<>();
 
         for (int i = 0; i < num; i++) {
@@ -98,17 +101,15 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
             clsSectionList.add(clsSection);
         }
 
-        mClsSectionList = clsSectionList;
-        mAdapter = new SectionListAdapter(mClsSectionList, mContext);
-        mListView.setAdapter(mAdapter);
+        mClsSectionList.addAll(clsSectionList);
+        mAdapter.notifyDataSetChanged();
     }
 
     protected void initView() {
         title.setText("一级列表");
         mToolbar.setVisibility(View.GONE);
 
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_add_black_24dp);
-        filter.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
+        filter.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_add_black_24dp, 0, 0, 0);
 
         edit.setVisibility(View.VISIBLE);
         filter.setVisibility(View.VISIBLE);

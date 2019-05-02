@@ -56,8 +56,18 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
     protected void initData() {
 
         mContext = this;
+        String sectionID = getIntent().getStringExtra("sectionID");
+        requestData(sectionID);
+
         initOfflineData(20);
-        isEditable = false;
+        mAdapter = new TopicListAdapter(mClsTopicList, mContext);
+        mListView.setAdapter(mAdapter);
+
+        setIsEditable(false);
+    }
+
+    private void requestData(String sectionID) {
+        Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
     }
 
     private void initOfflineData(int sum) {
@@ -89,9 +99,8 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
             clsTopic.setdCount(" dCount" + i);
             clsTopicList.add(clsTopic);
         }
-        mClsTopicList = clsTopicList;
-        mAdapter = new TopicListAdapter(mClsTopicList, mContext);
-        mListView.setAdapter(mAdapter);
+        mClsTopicList.addAll(clsTopicList);
+        mAdapter.notifyDataSetChanged();
     }
 
     protected void initView() {
@@ -137,13 +146,27 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
         if (v.getId() == R.id.title_left) {
-            finish();
+            if (getIsEditable()) {
+                switchEditable();
+            } else {
+                finish();
+            }
         }
         if (v.getId() == R.id.edit_tv) {
             switchEditable();
         }
         if (v.getId() == R.id.btn_delete_topic) {
             Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (getIsEditable()) {
+            switchEditable();
+        } else {
+            finish();
         }
     }
 

@@ -27,8 +27,6 @@ import butterknife.ButterKnife;
  * <p>
  * 根据上一个页面传过来的isMultipleEnable判断是否可以多选
  *
- * @author cgl
- * @since 2019/04/12
  */
 public class UserSelectActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -37,10 +37,6 @@ import butterknife.ButterKnife;
 import static com.yalantis.ucrop.util.FileUtils.getPath;
 
 /**
- * 论坛新建板块页面
- *
- * @author cgl
- * @since 2019/04/10
  */
 
 public class SectionNewActivity extends AppCompatActivity implements View.OnClickListener {

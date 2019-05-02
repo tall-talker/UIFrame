@@ -11,14 +11,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/section_check_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
             android:contentDescription="复选框"
-            android:src="@drawable/ic_check_box_outline_blank_black_24dp"
-            />
+            android:src="@drawable/ic_check_box_outline_blank_black_24dp" />
 
         <ImageView
             android:id="@+id/img_section_item"
@@ -27,19 +26,30 @@
             android:layout_gravity="center_vertical"
             android:contentDescription="版主头像" />
 
-        <TextView
-            android:id="@+id/txt_section_desc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/black" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_section_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_section_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/theme_num"

@@ -56,6 +56,7 @@ public class SectionListAdapter extends BaseAdapter {
             holder.logo = convertView.findViewById(R.id.img_section_item);
             holder.desc = convertView.findViewById(R.id.txt_section_desc);
 
+            holder.name = convertView.findViewById(R.id.txt_section_name);
             holder.owner = convertView.findViewById(R.id.section_owner);
             holder.replyNum = convertView.findViewById(R.id.reply_num);
             holder.themeNum = convertView.findViewById(R.id.theme_num);
@@ -67,23 +68,18 @@ public class SectionListAdapter extends BaseAdapter {
         }
 
         holder.logo.setImageResource(R.drawable.logo);
+        holder.name.setText("名称：" + clsSection.getSectionName());
         holder.owner.setText("版主：" + clsSection.getSectionManager());
-        holder.themeNum.setText("主题总数：10");
-        holder.replyNum.setText("回复总数：10");
+        holder.themeNum.setText("主题：10");
+        holder.replyNum.setText("回复：10");
 
-        String name = clsSection.getSectionName();
-
-        String content = name + "\n\n" + "板块描述 板块描述 板块描述 板块描述 " +
-                "板块描述 板块描述 板块描述 板块描述 板块描述 " +
-                "板块描述 板块描述 板块描述 板块描述 板块描述 ";
-
-        holder.desc.setText(content);
+        holder.desc.setText("内容：" + clsSection.getSectionDesc());
         holder.checkBox.setTag(position);
 
         if (clsSection.getIsCheckBoxVisible()) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
-            holder.checkBox.setVisibility(View.INVISIBLE);
+            holder.checkBox.setVisibility(View.GONE);
         }
 
         if (clsSection.getIsChecked()) {
@@ -102,5 +98,6 @@ public class SectionListAdapter extends BaseAdapter {
         TextView themeNum;
         TextView replyNum;
         TextView owner;
+        TextView name;
     }
 }

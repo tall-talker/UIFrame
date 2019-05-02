@@ -67,10 +67,8 @@ public class SectionEditActivity extends AppCompatActivity implements View.OnCli
 
     protected void initView() {
         title.setText("编辑板块");
-        Drawable deleteMenu = getResources().getDrawable(R.drawable.ic_delete_black_24dp);
-        filter.setCompoundDrawablesWithIntrinsicBounds(deleteMenu, null, null, null);
-        Drawable submitMenu = getResources().getDrawable(R.drawable.ic_send_black_24dp);
-        edit.setCompoundDrawablesWithIntrinsicBounds(submitMenu, null, null, null);
+        filter.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_delete_black_24dp, 0, 0, 0);
+        edit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
     }
 
     protected void initListener() {
