@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/title_bar" />
 
-    <TextView
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp"
-        android:drawableTop="@drawable/ic_format_list_numbered_black_24dp"
-        android:text="三级列表" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="1">
 
-    <TextView
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:drawableTop="@drawable/ic_drag_handle_black_24dp"
-        android:text="可拖拽列表" />
+        <TextView
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:drawableTop="@drawable/ic_format_list_numbered_black_24dp"
+            android:text="三级列表" />
 
-    <TextView
-        android:id="@+id/btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="111dp"
-        android:drawableTop="@drawable/ic_format_line_spacing_black_24dp"
-        android:text="滑动视图嵌套列表" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:drawableTop="@drawable/ic_drag_handle_black_24dp"
+            android:text="可拖拽列表" />
+
+        <TextView
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:drawableTop="@drawable/ic_format_line_spacing_black_24dp"
+            android:text="嵌套列表" />
+
+    </GridLayout>
+
+</LinearLayout>

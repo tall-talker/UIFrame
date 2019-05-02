@@ -21,11 +21,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                
+
                 android:gravity="center_vertical|start"
                 android:text="个人信息"
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout style="@style/UserInputLayout">
 
@@ -34,21 +36,27 @@
                     android:labelFor="@+id/et_user_name"
                     android:text="姓名：" />
 
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/et_user_name"
                     style="@style/UserInputContent"
                     android:inputType="text" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:text="性别：" />
+
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <RadioGroup
                     android:id="@+id/rg_user_gender"
@@ -84,27 +92,20 @@
                 </RadioGroup>
             </LinearLayout>
 
-            <LinearLayout style="@style/UserInputLayout">
-
-                <TextView
-                    style="@style/UserInputTitle"
-                    android:text="输入码：" />
-
-                <TextView
-                    android:id="@+id/user_input_code"
-                    style="@style/UserInputContent" />
-            </LinearLayout>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                
+
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:text="出生日期：" />
+
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <TextView
                     android:id="@+id/tv_select_birth"
@@ -124,6 +125,8 @@
                     android:src="@drawable/ic_perm_contact_calendar_black_24dp" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -131,6 +134,8 @@
                 android:text="隶属部门"
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -141,6 +146,8 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:text="部门：" />
+
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <TextView
                     android:id="@+id/tv_select_org"
@@ -160,16 +167,20 @@
                     android:src="@drawable/album_ic_done_white" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                
+
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:text="岗位：" />
+
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <TextView
                     android:id="@+id/tv_select_post"
@@ -189,6 +200,8 @@
                     android:src="@drawable/ic_arrow_drop_down_black_24dp" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <TextView
                 android:id="@+id/other_department"
                 android:layout_width="wrap_content"
@@ -198,16 +211,20 @@
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                
+
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:text="部门：" />
+
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <TextView
                     android:id="@+id/tv_select_orgs"
@@ -226,6 +243,8 @@
                     android:src="@drawable/ic_arrow_drop_down_black_24dp" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -234,20 +253,24 @@
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
 
-            <LinearLayout
-                style="@style/UserInputLayout"
-                >
+            <include layout="@layout/layout_item_divider_horizontal" />
+
+            <LinearLayout style="@style/UserInputLayout">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_mobile"
                     android:text="手机号码：" />
 
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/user_mobile"
                     style="@style/UserInputContent"
                     android:inputType="phone" />
             </LinearLayout>
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout style="@style/UserInputLayout">
 
@@ -256,26 +279,32 @@
                     android:labelFor="@id/user_telephone"
                     android:text="办公电话：" />
 
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/user_telephone"
                     style="@style/UserInputContent"
                     android:inputType="phone" />
             </LinearLayout>
 
-            <LinearLayout
-                style="@style/UserInputLayout"
-                >
+            <include layout="@layout/layout_item_divider_horizontal" />
+
+            <LinearLayout style="@style/UserInputLayout">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_email"
                     android:text="Email：" />
 
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/user_email"
                     style="@style/UserInputContent"
                     android:inputType="textEmailAddress" />
             </LinearLayout>
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -285,19 +314,24 @@
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
 
-            <LinearLayout style="@style/UserInputLayout"
-                >
+            <include layout="@layout/layout_item_divider_horizontal" />
+
+            <LinearLayout style="@style/UserInputLayout">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_login_name"
                     android:text="用户名：" />
 
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/user_login_name"
                     style="@style/UserInputContent"
                     android:inputType="text" />
             </LinearLayout>
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout style="@style/UserInputLayout">
 
@@ -306,19 +340,25 @@
                     android:labelFor="@id/user_password"
                     android:text="登陆密码：" />
 
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/user_password"
                     style="@style/UserInputContent"
                     android:inputType="textPassword" />
             </LinearLayout>
 
-            <LinearLayout style="@style/UserInputLayout"
-                >
+            <include layout="@layout/layout_item_divider_horizontal" />
+
+            <LinearLayout style="@style/UserInputLayout">
 
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_confirm"
                     android:text="确认密码：" />
+
+
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/user_confirm"
@@ -326,46 +366,7 @@
                     android:inputType="text" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15dp"
-                    android:gravity="center_vertical"
-                    android:text="密保问题："
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_pwd_protect"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/UserInputLayout"
-                >
-
-                <TextView
-                    style="@style/UserInputTitle"
-                    android:labelFor="@id/et_protect_answer"
-                    android:text="答案：" />
-
-                <EditText
-                    android:id="@+id/et_protect_answer"
-                    style="@style/UserInputContent"
-                    android:inputType="text" />
-            </LinearLayout>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -374,6 +375,8 @@
                 android:text="用户角色："
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -408,14 +411,14 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <ListView
                 android:id="@+id/lv_user_role"
                 android:layout_width="match_parent"
                 android:layout_height="160dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp" />
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -458,13 +461,17 @@
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
 
+            <include layout="@layout/layout_item_divider_horizontal" />
+
             <EditText
                 android:id="@+id/et_user_desc"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                
-                android:gravity="center"
+                android:background="@null"
+                android:gravity="start|top"
                 android:inputType="textMultiLine" />
+
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <View
                 android:layout_width="match_parent"

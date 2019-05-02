@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.oridway.www.uiframe.R;
+import com.oridway.www.uiframe.bean.ClsNormalUser;
 import com.yalantis.ucrop.UCrop;
 import com.yanzhenjie.album.Album;
 
@@ -108,8 +109,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         }
         if (v.getId() == R.id.section_new_manager) {
             Intent intent = new Intent(mContext, UserSelectActivity.class);
-            intent.putExtra("isMultipleEnable", false);
-            startActivity(intent);
+            startActivityForResult(intent, 12345);
         }
     }
 
@@ -136,6 +136,11 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
             Glide.with(mContext).load(tagFile).into(sectionLogo);
         }
         super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 12345 && resultCode == 123) {
+            ClsNormalUser user = data.getParcelableExtra("user");
+            sectionManager.setText(user.getCName());
+        }
     }
 
 }

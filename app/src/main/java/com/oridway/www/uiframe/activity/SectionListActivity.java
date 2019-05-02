@@ -153,7 +153,11 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.title_left) {
-            finish();
+            if (getIsEditable()) {
+                switchEditable();
+            } else {
+                finish();
+            }
         }
         if (v.getId() == R.id.edit_tv) {
             switchEditable();
@@ -166,20 +170,20 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
             startActivity(new Intent(mContext, SectionNewActivity.class));
         }
 
-        if (v.getId() == R.id.discuss_delete) {
-            for (ClsSection clsSection : mClsSectionList) {
-                if (clsSection.getIsChecked()) {
-                    mClsSectionList.remove(clsSection);
-                    mAdapter.notifyDataSetChanged();
-                }
-            }
+        switch (v.getId()) {
+            case R.id.discuss_delete:
+            case R.id.discuss_close:
+            case R.id.discuss_open:
+                Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getIsEditable()) {
             switchEditable();
-        }
-        if (v.getId() == R.id.discuss_close) {
-            Toast.makeText(mContext, "所选板块已关闭！", Toast.LENGTH_LONG).show();
-        }
-        if (v.getId() == R.id.discuss_open) {
-            Toast.makeText(mContext, "所选板块已开放！", Toast.LENGTH_LONG).show();
+        } else {
+            finish();
         }
     }
 
@@ -213,12 +217,13 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void switchEditable() {
+        setIsEditable(!getIsEditable());
+
         for (ClsSection clsSection : mClsSectionList) {
-            clsSection.setIsCheckBoxVisible(!clsSection.getIsCheckBoxVisible());
+            clsSection.setIsCheckBoxVisible(getIsEditable());
             clsSection.setIsChecked(false);
         }
         mAdapter.notifyDataSetChanged();
         mToolbar.setVisibility(View.GONE);
-        setIsEditable(!getIsEditable());
     }
 }

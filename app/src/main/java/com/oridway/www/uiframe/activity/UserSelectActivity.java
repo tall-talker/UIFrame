@@ -121,8 +121,8 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
                 }
             } else {
                 Intent intent = new Intent();
-                intent.putExtra("clsNormalUser", clsNormalUser);
-                setResult(999, intent);
+                intent.putExtra("user", clsNormalUser);
+                setResult(123, intent);
                 finish();
             }
         });
@@ -140,8 +140,8 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
                 }
             }
             Intent intent = new Intent();
-            intent.putParcelableArrayListExtra("normalUserList", normalUserList);
-            setResult(985, intent);
+            intent.putParcelableArrayListExtra("users", normalUserList);
+            setResult(123, intent);
             finish();
         }
     }

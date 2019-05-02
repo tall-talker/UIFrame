@@ -70,14 +70,6 @@ public class ClsNormalUser implements Parcelable {
         this.userType = userType;
     }
 
-    public String getcName() {
-        return cName;
-    }
-
-    public void setcName(String cName) {
-        this.cName = cName;
-    }
-
     public String getSysUserName() {
         return sysUserName;
     }

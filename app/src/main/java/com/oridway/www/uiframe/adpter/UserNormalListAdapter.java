@@ -60,7 +60,7 @@ public class UserNormalListAdapter extends BaseAdapter {
         }
 
         holder.id.setText(clsNormalUser.getUserID());
-        holder.name.setText(clsNormalUser.getcName());
+        holder.name.setText(clsNormalUser.getCName());
         holder.org.setText(clsNormalUser.getOrgName());
 
 
