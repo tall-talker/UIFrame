@@ -1,73 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <include layout="@layout/title_bar" />
-
-
-    <ImageView
-        android:id="@+id/section_new_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:minHeight="100dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo" />
-
-    <include layout="@layout/layout_item_divider_horizontal" />
-
-    <EditText
-        android:id="@+id/section_new_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:hint="请输入名称"
-        android:inputType="text"
-        android:layout_margin="10dp"
-        android:textColor="@color/black" />
-
-    <include layout="@layout/layout_item_divider_horizontal" />
-
-    <EditText
-        android:id="@+id/section_new_desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@null"
-        android:gravity="top|start"
-        android:hint="请输入内容"
-        android:inputType="textMultiLine"
-        android:minHeight="100dp"
-        android:textColor="@color/black" />
-
-    <include layout="@layout/layout_item_divider_horizontal" />
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
+        <include layout="@layout/title_bar" />
+
+
+        <ImageView
+            android:id="@+id/section_new_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="选择版主："
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+
+        <include layout="@layout/layout_item_divider_horizontal" />
+
+        <EditText
+            android:id="@+id/section_new_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:hint="请输入名称"
+            android:inputType="text"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_horizontal" />
+
+        <EditText
+            android:id="@+id/section_new_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:gravity="top|start"
+            android:hint="请输入内容"
+            android:inputType="textMultiLine"
+            android:minHeight="100dp"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_horizontal" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择版主："
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/section_new_manager"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+                android:text="default user"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <include layout="@layout/layout_item_divider_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:minHeight="30dp"
+                android:text="文件名："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="文件大小："
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="操作："
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_attach"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:divider="@null" />
+
+        <include layout="@layout/layout_item_divider_horizontal" />
 
         <TextView
-            android:id="@+id/section_new_manager"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="default user"
-            android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp"
+            android:id="@+id/tv_upload_attach"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:text="添加附件"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
     </LinearLayout>
-
-    <include layout="@layout/layout_item_divider_horizontal" />
-</LinearLayout>
+</ScrollView>
