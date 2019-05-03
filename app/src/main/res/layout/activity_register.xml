@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:src="@drawable/album_ic_done_white" />
+                     />
             </LinearLayout>
 
             <include layout="@layout/layout_item_divider_horizontal" />

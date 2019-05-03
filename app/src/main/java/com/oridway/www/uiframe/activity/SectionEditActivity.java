@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.oridway.www.uiframe.R;
 import com.yalantis.ucrop.UCrop;
-import com.yanzhenjie.album.Album;
 
 import java.io.File;
 
@@ -89,7 +88,10 @@ public class SectionEditActivity extends AppCompatActivity implements View.OnCli
             finish();
         }
         if (v.getId() == R.id.section_edit_logo) {
-            selectPicture(path);
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("image/*");
+            startActivityForResult(intent, 16352);
         }
         if (v.getId() == R.id.edit_tv) {
 
@@ -101,27 +103,11 @@ public class SectionEditActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    private void selectPicture(String path) {
-        Album.image(this)
-                .multipleChoice()
-                .camera(true)
-                .columnCount(4)
-                .selectCount(1)
-                .afterFilterVisibility(true)
-                .onResult(result -> {
-                    srcFile = new File(result.get(0).getPath());
-                    tagFile = new File(path + "/" + srcFile.getName());
-                    Log.e(TAG, "tagFile delete: " + tagFile.delete());
-
-                    UCrop.of(Uri.fromFile(srcFile), Uri.fromFile(tagFile))
-                            .start(SectionEditActivity.this, 666);
-                }).start();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 666 && resultCode == RESULT_OK) {
-            Glide.with(mContext).load(tagFile).into(sectionLogo);
+
+        if (requestCode == 16352 && resultCode == RESULT_OK) {
+            Glide.with(mContext).load(data.getData()).into(sectionLogo);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

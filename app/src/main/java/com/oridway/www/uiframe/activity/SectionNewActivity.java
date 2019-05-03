@@ -23,7 +23,6 @@ import com.oridway.www.uiframe.adpter.AttachmentListAdapter;
 import com.oridway.www.uiframe.bean.ClsAttachMent;
 import com.oridway.www.uiframe.bean.ClsNormalUser;
 import com.yalantis.ucrop.UCrop;
-import com.yanzhenjie.album.Album;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -142,7 +141,10 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         if (v.getId() == R.id.edit_tv) {
         }
         if (v.getId() == R.id.section_new_logo) {
-            selectPicture(path);
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("image/*");
+            startActivityForResult(intent, 16352);
         }
         if (v.getId() == R.id.section_new_manager) {
             Intent intent = new Intent(mContext, UserSelectActivity.class);
@@ -167,29 +169,11 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private void selectPicture(String path) {
-        Album.image(this)
-                .multipleChoice()
-                .camera(true)
-                .columnCount(4)
-                .selectCount(1)
-                .afterFilterVisibility(true)
-                .onResult(result -> {
-                    srcFile = new File(result.get(0).getPath());
-                    tagFile = new File(path + "/" + srcFile.getName());
-                    Log.e(TAG, "tagFile delete: " + tagFile.delete());
-
-                    UCrop.of(Uri.fromFile(srcFile), Uri.fromFile(tagFile))
-                            .start(SectionNewActivity.this, 666);
-                }).start();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 666 && resultCode == RESULT_OK) {
-            Glide.with(mContext).load(tagFile).into(sectionLogo);
+        if (requestCode == 16352 && resultCode == RESULT_OK) {
+            Glide.with(mContext).load(data.getData()).into(sectionLogo);
         }
-        super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 12345 && resultCode == 123) {
             ClsNormalUser user = data.getParcelableExtra("user");
@@ -214,6 +198,8 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
                 addAttach(data);
             }
         }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void addAttach(Intent data) {
