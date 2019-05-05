@@ -51,7 +51,6 @@ public class UserNormalListAdapter extends BaseAdapter {
             holder.id = convertView.findViewById(R.id.user_id);
             holder.name = convertView.findViewById(R.id.user_name);
             holder.org = convertView.findViewById(R.id.user_org);
-            holder.status = convertView.findViewById(R.id.user_status);
 
             holder.checkBox = convertView.findViewById(R.id.user_checkbox);
             convertView.setTag(holder);
@@ -67,7 +66,7 @@ public class UserNormalListAdapter extends BaseAdapter {
         if (clsNormalUser.getIsCheckBoxVisible()) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
-            holder.checkBox.setVisibility(View.INVISIBLE);
+            holder.checkBox.setVisibility(View.GONE);
         }
 
         if (clsNormalUser.getIsChecked()) {
@@ -76,8 +75,6 @@ public class UserNormalListAdapter extends BaseAdapter {
             holder.checkBox.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
         }
 
-        holder.status.setText(clsNormalUser.getIsOff());
-
         return convertView;
     }
 
@@ -85,7 +82,6 @@ public class UserNormalListAdapter extends BaseAdapter {
         TextView id;
         TextView name;
         TextView org;
-        TextView status;
         ImageView checkBox;
     }
 }

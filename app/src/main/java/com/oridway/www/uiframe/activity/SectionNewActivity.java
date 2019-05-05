@@ -62,13 +62,8 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
     ListView mListView;
 
     private Context mContext;
-    private String path;
-    private File tagFile;
-    private File srcFile;
-    private String userID;
     private List<ClsAttachMent> mAttachList;
     private AttachmentListAdapter mAdapter;
-    private List<HashMap<String, String>> mAttachJsons;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,20 +82,16 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         mAttachList = new ArrayList<>();
         mAdapter = new AttachmentListAdapter(mAttachList, mContext);
         mListView.setAdapter(mAdapter);
-
-        path = Environment.getExternalStorageDirectory() + "/CropPictures";
     }
 
     protected void initView() {
         title.setText("新建板块");
 
         filter.setVisibility(View.VISIBLE);
-        Drawable deleteMenu = getResources().getDrawable(R.drawable.ic_delete_black_24dp);
-        filter.setCompoundDrawablesWithIntrinsicBounds(deleteMenu, null, null, null);
+        filter.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_delete_black_24dp, 0, 0, 0);
 
         edit.setVisibility(View.VISIBLE);
-        Drawable submitMenu = getResources().getDrawable(R.drawable.ic_send_black_24dp);
-        edit.setCompoundDrawablesWithIntrinsicBounds(submitMenu, null, null, null);
+        edit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
     }
 
     protected void initListener() {
@@ -139,6 +130,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
             finish();
         }
         if (v.getId() == R.id.edit_tv) {
+            submit();
         }
         if (v.getId() == R.id.section_new_logo) {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -167,6 +159,11 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
                 Toast.makeText(mContext, "附件数量已达上限！", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void submit() {
+        Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
@@ -222,7 +219,6 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void uploadFile(String path) {
-
         Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
     }
 }

@@ -74,7 +74,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     protected void initData() {
         mContext = this;
-        getOfflineData(10);
+        getOfflineData(20);
 
         setIsEditable(false);
         OnlineReportListCallback callback = new OnlineReportListCallback(mAdapter);

@@ -62,7 +62,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         mContext = this;
         isMultipleEnable = getIntent().getBooleanExtra("isMultipleEnable", false);
 
-        getOffonlineData(30);
+        getOffonlineData(20);
     }
 
     private void getOffonlineData(int num) {
@@ -110,7 +110,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         edit.setOnClickListener(this);
 
         mListView.setOnItemClickListener((parent, view, position, id) -> {
-            ClsNormalUser clsNormalUser = mClsNormalUserList.get(position - 1);
+            ClsNormalUser clsNormalUser = mClsNormalUserList.get(position);
             if (isMultipleEnable) {
                 if (clsNormalUser.getIsCheckBoxVisible()) {
                     clsNormalUser.setIsChecked(!clsNormalUser.getIsChecked());

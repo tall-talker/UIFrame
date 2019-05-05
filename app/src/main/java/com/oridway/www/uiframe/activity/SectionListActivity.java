@@ -39,8 +39,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     TextView filter;
     @BindView(R.id.discuss_toolbar)
     LinearLayout mToolbar;
-    @BindView(R.id.discuss_edit)
-    TextView btnEdit;
     @BindView(R.id.discuss_close)
     TextView btnClose;
     @BindView(R.id.discuss_open)
@@ -122,7 +120,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         btnClose.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnOpen.setOnClickListener(this);
-        btnEdit.setOnClickListener(this);
         filter.setOnClickListener(this);
 
         mListView.setOnItemClickListener((parent, view, position, id) -> {
@@ -164,12 +161,10 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         if (v.getId() == R.id.edit_tv) {
             switchEditable();
         }
-        if (v.getId() == R.id.discuss_edit) {
-            checkOperation(SectionEditActivity.class);
-        }
 
         if (v.getId() == R.id.filter_tv) {
-            startActivity(new Intent(mContext, SectionNewActivity.class));
+            Intent intent = new Intent(mContext, SectionNewActivity.class);
+            startActivityForResult(intent, 15874);
         }
 
         switch (v.getId()) {
@@ -186,27 +181,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
             switchEditable();
         } else {
             finish();
-        }
-    }
-
-    private void checkOperation(Class targetActivity) {
-        int checkedNum = 0;
-        ClsSection checkedItem = null;
-        for (int i = 0; i < mClsSectionList.size(); i++) {
-            ClsSection clsSection = mClsSectionList.get(i);
-            if (clsSection.getIsChecked()) {
-                checkedItem = clsSection;
-                checkedNum = checkedNum + 1;
-                if (checkedNum > 1) {
-                    Toast.makeText(mContext, "只支持单项编辑！", Toast.LENGTH_LONG).show();
-                    break;
-                }
-            }
-        }
-        if (checkedNum == 1) {
-            Intent intent = new Intent(mContext, targetActivity);
-            intent.putExtra("sectionParcelable", checkedItem);
-            startActivity(intent);
         }
     }
 
@@ -227,5 +201,20 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         }
         mAdapter.notifyDataSetChanged();
         mToolbar.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (requestCode == 15874 && resultCode == RESULT_OK) {
+            refreshData();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void refreshData() {
+
+        Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
     }
 }

@@ -31,15 +31,6 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/discuss_edit"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/ic_edit_black_24dp"
-            android:gravity="center"
-            android:text="编辑"
-            android:textColor="@color/black" />
-
-        <TextView
             android:id="@+id/discuss_close"
             android:layout_width="60dp"
             android:layout_height="wrap_content"

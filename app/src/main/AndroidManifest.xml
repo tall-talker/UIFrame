@@ -70,11 +70,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".activity.SectionEditActivity"
-            android:launchMode="standard"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
             android:name=".activity.SectionNewActivity"
             android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />
