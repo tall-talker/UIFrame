@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.oridway.www.uiframe.R;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,12 +107,16 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_filter);
         ButterKnife.bind(this);
+
+        initView();
+        initData();
+        initListener();
     }
 
     protected void initData() {
 
         mContext = this;
-        title.setText("用户筛选");
+        title.setText("筛选");
 
         imageViewList = new ArrayList<>();
         imageViewList.add(ivNumber);
@@ -135,27 +138,6 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
     }
 
     protected void initListener() {
-
-        tvDepartment.setOnClickListener(this);
-        ivDepartment.setOnClickListener(this);
-
-        tvUserName.setOnClickListener(this);
-        ivUserName.setOnClickListener(this);
-
-        tvCreator.setOnClickListener(this);
-        ivCreator.setOnClickListener(this);
-
-        tvBirthEnd.setOnClickListener(this);
-        ivBirthDate1.setOnClickListener(this);
-
-        tvBirthStart.setOnClickListener(this);
-        ivBirthDate2.setOnClickListener(this);
-
-        tvOffStart.setOnClickListener(this);
-        ivOffStart.setOnClickListener(this);
-
-        ivOffEnd.setOnClickListener(this);
-        tvOffEnd.setOnClickListener(this);
 
         for (ImageView imageView : imageViewList) {
             imageView.setOnClickListener(this);
@@ -179,18 +161,8 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             finish();
         }
 
-        if (view.getId() == R.id.edit_tv) {
-
-        }
-
-        if (view.getId() == R.id.tv_user_name) {
-
-        }
-
-        if (view.getId() == R.id.tv_department) {
-        }
-
-        if (view.getId() == R.id.tv_creator) {
+        if(view.getId() == R.id.edit_tv){
+            submitCondition();
         }
 
         switch (view.getId()) {
@@ -211,22 +183,10 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
         String number = etNumber.getText().toString();
         String workNumber = etWorkNumber.getText().toString();
         String sysName = etSysName.getText().toString();
-        String userName = tvUserName.getText().toString();
-        String deparment = tvDepartment.getText().toString();
         String post = etPost.getText().toString();
         String mobile = etMobile.getText().toString();
         String telePhone = etTelePhone.getText().toString();
         String email = etEmail.getText().toString();
-        String birthStart = tvBirthStart.getText().toString();
-        String birthEnd = tvBirthEnd.getText().toString();
-
-        String creator = "";
-        if (tvCreator.getTag() != null) {
-            creator = tvCreator.getTag().toString();
-        }
-
-        String offEnd = tvOffEnd.getText().toString();
-        String offStart = tvOffStart.getText().toString();
 
         if (!TextUtils.isEmpty(number)) {
             String[] arr = number.split(",");
@@ -251,9 +211,9 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             } else {
                 for (int i = 0; i < arr.length; i++) {
                     if (i == 0) {
-                        sb.append(" and (sysUserName like '|").append(arr[i]).append("|'");
+                        sb.append(" and (userName like '|").append(arr[i]).append("|'");
                     } else {
-                        sb.append(" or sysUserName like '|").append(arr[i]).append("|'");
+                        sb.append(" or userName like '|").append(arr[i]).append("|'");
                     }
                 }
                 sb.append(")");
@@ -276,15 +236,6 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             }
         }
 
-        if (!TextUtils.isEmpty(userName)) {
-            String[] arr = userName.split(",");
-            sb.append(" and cName in (").append(stringToString(arr)).append(")");
-        }
-
-        if (!TextUtils.isEmpty(deparment)) {
-            String[] arr = deparment.split(",");
-            sb.append(" and orgName in (").append(stringToString(arr)).append(")");
-        }
         if (!TextUtils.isEmpty(post)) {
             String[] arr = post.split(",");
             if ((boolean) ivPost.getTag()) {
@@ -292,9 +243,9 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             } else {
                 for (int i = 0; i < arr.length; i++) {
                     if (i == 0) {
-                        sb.append(" and (workPos like '|").append(arr[0]).append("|'");
+                        sb.append(" and (workPost like '|").append(arr[0]).append("|'");
                     } else {
-                        sb.append(" or workPos like '|").append(arr[i]).append("|'");
+                        sb.append(" or workPost like '|").append(arr[i]).append("|'");
                     }
                 }
                 sb.append(")");
@@ -350,30 +301,6 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             }
         }
 
-        if (!TextUtils.isEmpty(birthStart)) {
-            sb.append(" and CONVERT(varchar(10), birthDay, 120)>'").append(birthStart).append("'");
-        }
-        if (!TextUtils.isEmpty(birthEnd)) {
-            sb.append(" and CONVERT(varchar(10), birthDay, 120)<'").append(birthEnd).append("'");
-        }
-
-        if (!TextUtils.isEmpty(creator)) {
-            sb.append(" and createrID='").append(creator).append("'");
-        }
-
-        if (rgStatus.getCheckedRadioButtonId() == R.id.rb_status_on) {
-            sb.append(" and isOff=0");
-        }
-
-        if (rgStatus.getCheckedRadioButtonId() == R.id.rb_status_off) {
-            sb.append(" and isOff=1");
-            @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String curDate = sdf.format(System.currentTimeMillis());
-            sb.append(" and setOffDate >='").append(offStart).append("' and setOffDate<='")
-                    .append(TextUtils.isEmpty(offEnd) ? curDate : offEnd).append("'");
-        }
-
         Intent intent = new Intent();
         intent.putExtra("sql", sb.toString());
         setResult(123, intent);
@@ -383,9 +310,9 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
     public void switchExact(ImageView view) {
         view.setTag(!(boolean) view.getTag());
         if ((boolean) view.getTag()) {
-//            view.setImageResource(R.drawable.out);
+            view.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
         } else {
-//            view.setImageResource(R.drawable.sys_unchecked);
+            view.setImageResource(R.drawable.ic_check_box_black_24dp);
         }
     }
 
