@@ -52,18 +52,11 @@ public class RoleSelectAdapter extends BaseAdapter {
             holder = new ItemHolder();
             holder.name = convertView.findViewById(R.id.tv_role_name);
             holder.desc = convertView.findViewById(R.id.tv_role_desc);
-            holder.creator = convertView.findViewById(R.id.tv_role_creater);
+            holder.creator = convertView.findViewById(R.id.tv_role_creator);
             holder.checkbox = convertView.findViewById(R.id.iv_role_checkbox);
             convertView.setTag(holder);
         } else {
             holder = (ItemHolder) convertView.getTag();
-        }
-
-        if (position % 2 == 0) {
-            ColorDrawable drawable = new ColorDrawable(rgb(0xff, 0xe7, 0xba));
-            convertView.setBackground(drawable);
-        } else {
-            convertView.setBackground(null);
         }
 
         holder.name.setText(clsRole.getSysRoleName());

@@ -25,6 +25,11 @@
         </activity>
 
         <activity
+            android:name=".activity.ReportDetailActivity"
+            android:launchMode="standard"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".activity.RoleSelectActivity"
             android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />

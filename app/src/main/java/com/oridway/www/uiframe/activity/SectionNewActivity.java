@@ -175,7 +175,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
             Glide.with(mContext).load(data.getData()).into(sectionLogo);
         }
 
-        if (requestCode == 12345 && resultCode == 123) {
+        if (requestCode == 12345 && resultCode == RESULT_OK) {
             ClsNormalUser user = data.getParcelableExtra("user");
             sectionManager.setText(user.getCName());
         }

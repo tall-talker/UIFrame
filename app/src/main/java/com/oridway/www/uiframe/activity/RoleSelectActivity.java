@@ -96,7 +96,7 @@ public class RoleSelectActivity extends Activity implements View.OnClickListener
 
     protected void initView() {
 
-        title.setText("选择权限");
+        title.setText("选择角色");
         edit.setVisibility(View.VISIBLE);
         edit.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_check_black_24dp, 0);
     }

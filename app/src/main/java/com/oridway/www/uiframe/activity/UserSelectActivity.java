@@ -26,7 +26,6 @@ import butterknife.ButterKnife;
  * 选择用户的页面
  * <p>
  * 根据上一个页面传过来的isMultipleEnable判断是否可以多选
- *
  */
 public class UserSelectActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -120,7 +119,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
             } else {
                 Intent intent = new Intent();
                 intent.putExtra("user", clsNormalUser);
-                setResult(123, intent);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });

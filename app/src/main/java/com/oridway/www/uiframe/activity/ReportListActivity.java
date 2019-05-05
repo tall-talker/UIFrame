@@ -1,6 +1,7 @@
 package com.oridway.www.uiframe.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -147,6 +148,9 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                         }
                     } else {
                         Toast.makeText(mContext, clsOnlineReport.toString(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(mContext, ReportDetailActivity.class);
+                        intent.putExtra("bulletinID", clsOnlineReport.getBulletinID());
+                        startActivityForResult(intent, 16371);
                     }
             }
         });
@@ -230,5 +234,20 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         } else {
             itemTouchHelper.attachToRecyclerView(null);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (requestCode == 16371 && resultCode == RESULT_OK) {
+
+            refreshData();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void refreshData() {
+        Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
     }
 }
