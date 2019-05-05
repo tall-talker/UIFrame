@@ -62,6 +62,10 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         mContext = this;
         isMultipleEnable = getIntent().getBooleanExtra("isMultipleEnable", false);
 
+        mClsNormalUserList = new ArrayList<>();
+        mAdapter = new UserNormalListAdapter(mClsNormalUserList, mContext);
+        mListView.setAdapter(mAdapter);
+
         getOffonlineData(20);
     }
 
@@ -95,9 +99,8 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
             clsNormalUserList.add(clsNormalUser);
         }
 
-        mClsNormalUserList = clsNormalUserList;
-        mAdapter = new UserNormalListAdapter(mClsNormalUserList, mContext);
-        mListView.setAdapter(mAdapter);
+        mClsNormalUserList.addAll(clsNormalUserList);
+        mAdapter.notifyDataSetChanged();
     }
 
     protected void initView() {

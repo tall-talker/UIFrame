@@ -38,6 +38,15 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
     @BindView(R.id.tv8)
     TextView tv8;
 
+    @BindView(R.id.delete)
+    TextView delete;
+    @BindView(R.id.edit)
+    TextView edit;
+    @BindView(R.id.close)
+    TextView close;
+    @BindView(R.id.open)
+    TextView open;
+
     private Context mContext;
     private String bulletinID;
 

@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView btn2;
     @BindView(R.id.btn3)
     TextView btn3;
+    @BindView(R.id.btn4)
+    TextView btn4;
 
     private Context mContext;
 
@@ -55,11 +57,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
         backButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
+
+        if (view.getId() == R.id.btn4) {
+            startActivity(new Intent(mContext, UserNormalFilterActivity.class));
+        }
 
         if (view.getId() == R.id.btn3) {
             startActivity(new Intent(mContext, RegisterActivity.class));

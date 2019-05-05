@@ -47,10 +47,6 @@ public class RoleSelectActivity extends Activity implements View.OnClickListener
         initView();
         initData();
         initListener();
-
-        getOfflineData(40);
-        mAdapter = new RoleSelectAdapter(mContext, mClsRoleList);
-        mListView.setAdapter(mAdapter);
     }
 
     @Override
@@ -86,12 +82,18 @@ public class RoleSelectActivity extends Activity implements View.OnClickListener
             clsNormalUsers.add(clsRole);
         }
 
-        mClsRoleList = clsNormalUsers;
+        mClsRoleList.addAll(clsNormalUsers);
+        mAdapter.notifyDataSetChanged();
     }
 
     protected void initData() {
 
         mContext = this;
+        mClsRoleList = new ArrayList<>();
+        mAdapter = new RoleSelectAdapter(mContext, mClsRoleList);
+        mListView.setAdapter(mAdapter);
+
+        getOfflineData(40);
     }
 
     protected void initView() {
