@@ -16,6 +16,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:text="标题"
             android:textColor="@color/black" />
@@ -26,6 +27,7 @@
             android:id="@+id/tv1"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:textColor="@color/black" />
@@ -41,6 +43,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:text="标题"
             android:textColor="@color/black" />
@@ -51,6 +54,7 @@
             android:id="@+id/tv2"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:textColor="@color/black" />
@@ -66,6 +70,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:text="标题"
             android:textColor="@color/black" />
@@ -76,6 +81,142 @@
             android:id="@+id/tv3"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_item_divider_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_vertical" />
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_item_divider_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_vertical" />
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_item_divider_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_vertical" />
+
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_item_divider_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_vertical" />
+
+        <TextView
+            android:id="@+id/tv7"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_item_divider_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textColor="@color/black" />
+
+        <include layout="@layout/layout_item_divider_vertical" />
+
+        <TextView
+            android:id="@+id/tv8"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:textColor="@color/black" />

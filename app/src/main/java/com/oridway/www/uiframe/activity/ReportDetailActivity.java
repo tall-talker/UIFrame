@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oridway.www.uiframe.R;
+import com.oridway.www.uiframe.bean.ClsOnlineReport;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,8 +21,25 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
     TextView title;
     @BindView(R.id.title_left)
     ImageView backButton;
+    @BindView(R.id.tv1)
+    TextView tv1;
+    @BindView(R.id.tv2)
+    TextView tv2;
+    @BindView(R.id.tv3)
+    TextView tv3;
+    @BindView(R.id.tv4)
+    TextView tv4;
+    @BindView(R.id.tv5)
+    TextView tv5;
+    @BindView(R.id.tv6)
+    TextView tv6;
+    @BindView(R.id.tv7)
+    TextView tv7;
+    @BindView(R.id.tv8)
+    TextView tv8;
 
     private Context mContext;
+    private String bulletinID;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +58,21 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
 
     private void initData() {
         mContext = this;
+        bulletinID = getIntent().getStringExtra("bulletinID");
+        getData(bulletinID);
+    }
+
+    private void getData(String bulletinID) {
+        Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
+
+        tv1.setText("此处展示数据");
+        tv2.setText("此处展示数据");
+        tv3.setText("此处展示数据");
+        tv4.setText("此处展示数据");
+        tv5.setText("此处展示数据");
+        tv6.setText("此处展示数据");
+        tv7.setText("此处展示数据");
+        tv8.setText("此处展示数据");
     }
 
     private void initListener() {

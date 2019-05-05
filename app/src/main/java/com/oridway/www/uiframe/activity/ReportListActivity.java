@@ -147,7 +147,6 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                             }
                         }
                     } else {
-                        Toast.makeText(mContext, clsOnlineReport.toString(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(mContext, ReportDetailActivity.class);
                         intent.putExtra("bulletinID", clsOnlineReport.getBulletinID());
                         startActivityForResult(intent, 16371);
@@ -240,7 +239,6 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         if (requestCode == 16371 && resultCode == RESULT_OK) {
-
             refreshData();
         }
 

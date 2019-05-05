@@ -23,38 +23,6 @@
         android:text="设置"
         android:textSize="20sp" />
 
-    <!-- 中间选择列表  控件 -->
-
-    <LinearLayout
-        android:id="@+id/rg_title_middle_list"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/rb_title_middle_b1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-
-        <TextView
-            android:id="@+id/rb_title_middle_b2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-
-        <!--  -->
-    </LinearLayout>
-
     <TextView
         android:id="@+id/add_tv"
         android:layout_width="wrap_content"
