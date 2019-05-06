@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  * 将用户的输入转换成sql语句，回传给上一个Activity
  * 涉及到精确查询和模糊查询
  */
-public class UserNormalFilterActivity extends AppCompatActivity implements View.OnClickListener {
+public class UserFilterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "UserFilterActivity";
     @BindView(R.id.title_left)

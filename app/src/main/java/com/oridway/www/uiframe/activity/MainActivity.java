@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         if (view.getId() == R.id.btn4) {
-            startActivity(new Intent(mContext, UserNormalFilterActivity.class));
+            startActivity(new Intent(mContext, UserFilterActivity.class));
         }
 
         if (view.getId() == R.id.btn3) {

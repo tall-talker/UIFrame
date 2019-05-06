@@ -19,6 +19,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 可拖拽列表的适配器，需要实现OnlineReportListCallback.ItemTouchMoveListener
+ */
 public class RecyclerAdapter extends RecyclerView.Adapter implements OnlineReportListCallback.ItemTouchMoveListener, View.OnClickListener {
 
     private List<ClsOnlineReport> mList;

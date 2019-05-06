@@ -13,13 +13,13 @@ import com.oridway.www.uiframe.bean.ClsNormalUser;
 
 import java.util.List;
 
-public class UserNormalListAdapter extends BaseAdapter {
+public class UserSelectAdapter extends BaseAdapter {
 
     private List<ClsNormalUser> mList;
     private Context mContext;
     private LayoutInflater mInflater;
 
-    public UserNormalListAdapter(List<ClsNormalUser> list, Context context) {
+    public UserSelectAdapter(List<ClsNormalUser> list, Context context) {
         mContext = context;
         mList = list;
         mInflater = LayoutInflater.from(mContext);

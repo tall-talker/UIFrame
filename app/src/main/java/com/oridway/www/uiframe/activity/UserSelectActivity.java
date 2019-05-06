@@ -11,10 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oridway.www.uiframe.R;
-import com.oridway.www.uiframe.adpter.SectionListAdapter;
-import com.oridway.www.uiframe.adpter.UserNormalListAdapter;
+import com.oridway.www.uiframe.adpter.UserSelectAdapter;
 import com.oridway.www.uiframe.bean.ClsNormalUser;
-import com.oridway.www.uiframe.bean.ClsSection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +24,6 @@ import butterknife.ButterKnife;
  * 根据上一个页面传过来的isMultipleEnable判断是否可以多选
  * 单选页面选中一个条目直接结束并回传
  * 多选页面选中之后需要提交
- *
  */
 public class UserSelectActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,7 +42,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
 
     private Context mContext;
     private boolean isMultipleEnable;
-    private UserNormalListAdapter mAdapter;
+    private UserSelectAdapter mAdapter;
     private List<ClsNormalUser> mClsNormalUserList;
 
     @Override
@@ -64,7 +61,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         isMultipleEnable = getIntent().getBooleanExtra("isMultipleEnable", false);
 
         mClsNormalUserList = new ArrayList<>();
-        mAdapter = new UserNormalListAdapter(mClsNormalUserList, mContext);
+        mAdapter = new UserSelectAdapter(mClsNormalUserList, mContext);
         mListView.setAdapter(mAdapter);
 
         getOfflineData(20);

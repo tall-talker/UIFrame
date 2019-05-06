@@ -12,6 +12,9 @@ import com.oridway.www.uiframe.bean.ClsRole;
 
 import java.util.List;
 
+/**
+ * 内置了一个回调接口，用于删除列表中的条目
+ */
 public class RoleCardAdapter extends BaseAdapter implements View.OnClickListener {
 
     private List<ClsRole> mClsRoleList;

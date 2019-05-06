@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".activity.UserNormalFilterActivity"
+            android:name=".activity.UserFilterActivity"
             android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />
 

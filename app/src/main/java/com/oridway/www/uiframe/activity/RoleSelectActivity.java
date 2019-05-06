@@ -140,10 +140,4 @@ public class RoleSelectActivity extends AppCompatActivity implements View.OnClic
             finish();
         }
     }
-
-    @Override
-    protected void onDestroy() {
-        Log.e(TAG, "onDestroy");
-        super.onDestroy();
-    }
 }

@@ -30,8 +30,9 @@ import butterknife.ButterKnife;
  * 新建用户的页面
  * 1.包含一个标题栏和ScrollView
  * 2.ScrollView中包含一个定高的ListView
+ * 3.需要实现RoleCardAdapter.Callback以删除列表中的条目
  */
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, RoleCardAdapter.Callback {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final static String TAG = "RegisterActivity";
 
@@ -63,11 +64,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         initView();
         initData();
         initListener();
-
-        mClsRoleList = getOfflineData(10);
-        mAdapter = new RoleCardAdapter(mContext, mClsRoleList);
-        mAdapter.setmCallback(this);
-        mListView.setAdapter(mAdapter);
     }
 
     private void initView() {
@@ -76,6 +72,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initData() {
         mContext = this;
+
+        mClsRoleList = new ArrayList<>();
+        mAdapter = new RoleCardAdapter(mContext, mClsRoleList);
+        mListView.setAdapter(mAdapter);
+        mClsRoleList.addAll(getOfflineData(10));
+        mAdapter.notifyDataSetChanged();
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -83,6 +85,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         backButton.setOnClickListener(this);
         addRole.setOnClickListener(this);
         clearRole.setOnClickListener(this);
+
+        mAdapter.setmCallback((view, position) -> {
+            if (mClsRoleList.size() == 1) {
+                Toast.makeText(mContext, "至少保留一个角色", Toast.LENGTH_LONG).show();
+            } else {
+                mClsRoleList.remove(position);
+                mAdapter.notifyDataSetChanged();
+            }
+        });
 
         mListView.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -115,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    public List<ClsRole> getOfflineData(int num) {
+    private List<ClsRole> getOfflineData(int num) {
 
         List<ClsRole> clsNormalUsers = new ArrayList<>();
         for (int i = 0; i < num; i++) {
@@ -138,17 +149,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         return clsNormalUsers;
-    }
-
-    @Override
-    public void onClick(View view, int position) {
-
-        if (mClsRoleList.size() == 1) {
-            Toast.makeText(mContext, "至少保留一个角色", Toast.LENGTH_LONG).show();
-        } else {
-            mClsRoleList.remove(position);
-            mAdapter.notifyDataSetChanged();
-        }
     }
 
     @Override

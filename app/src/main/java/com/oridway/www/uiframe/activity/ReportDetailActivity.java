@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 可拖拽列表的详情
+ * 可拖拽列表的详情，接收列表传过来的bulletinID
  */
 public class ReportDetailActivity extends AppCompatActivity implements View.OnClickListener {
 

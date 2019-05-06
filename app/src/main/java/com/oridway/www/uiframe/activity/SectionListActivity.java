@@ -28,6 +28,7 @@ import butterknife.ButterKnife;
  * 1.编辑状态下选中一个条目，会弹出底部操作栏
  * 2.非编辑状态下选中条目会跳转到下一级
  * 3.复选框使用ImageView而不是CheckBox
+ * 4.编辑状态下，按返回键回到非编辑状态
  */
 public class SectionListActivity extends AppCompatActivity implements View.OnClickListener {
 
