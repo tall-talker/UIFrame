@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,7 +26,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RegisterActivity extends Activity implements View.OnClickListener, RoleCardAdapter.Callback {
+/**
+ * 新建用户的页面
+ * 1.包含一个标题栏和ScrollView
+ * 2.ScrollView中包含一个定高的ListView
+ */
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, RoleCardAdapter.Callback {
 
     private final static String TAG = "RegisterActivity";
 
@@ -62,22 +68,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener, 
         mAdapter = new RoleCardAdapter(mContext, mClsRoleList);
         mAdapter.setmCallback(this);
         mListView.setAdapter(mAdapter);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        Log.e(TAG, "onDestroy");
-        super.onDestroy();
     }
 
     private void initView() {

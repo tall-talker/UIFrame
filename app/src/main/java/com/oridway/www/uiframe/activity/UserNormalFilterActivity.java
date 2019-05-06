@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +24,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 将用户的输入转换成sql语句，回传给上一个Activity
+ * 涉及到精确查询和模糊查询
+ */
 public class UserNormalFilterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "UserFilterActivity";
@@ -161,8 +166,8 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             finish();
         }
 
-        if(view.getId() == R.id.edit_tv){
-            submitCondition();
+        if (view.getId() == R.id.edit_tv) {
+            submit();
         }
 
         switch (view.getId()) {
@@ -174,11 +179,13 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             case R.id.iv_mobile:
             case R.id.iv_telephone:
             case R.id.iv_email:
+
+                Log.e(TAG, "switchExact");
                 switchExact((ImageView) view);
         }
     }
 
-    public void submitCondition() {
+    public void submit() {
         StringBuilder sb = new StringBuilder("where");
         String number = etNumber.getText().toString();
         String workNumber = etWorkNumber.getText().toString();
@@ -195,9 +202,9 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             } else {
                 for (int i = 0; i < arr.length; i++) {
                     if (i == 0) {
-                        sb.append(" and (left(userID, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
+                        sb.append(" and (left(userId, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
                     } else {
-                        sb.append(" or left(userID, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
+                        sb.append(" or left(userId, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
                     }
                 }
                 sb.append(")");
@@ -207,7 +214,7 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
         if (!TextUtils.isEmpty(sysName)) {
             String[] arr = sysName.split(",");
             if ((boolean) ivSysName.getTag()) {
-                sb.append(" and sysUserName in (").append(stringToString(arr)).append(")");
+                sb.append(" and userName in (").append(stringToString(arr)).append(")");
             } else {
                 for (int i = 0; i < arr.length; i++) {
                     if (i == 0) {
@@ -258,11 +265,11 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
                 sb.append(" and mobile in (").append(stringToString(arr)).append(")");
             } else {
                 for (int i = 0; i < arr.length; i++) {
-                    sb.append(" and mobile in ('").append(stringToString(arr)).append("')");
+                    sb.append(" and mobileNumber in ('").append(stringToString(arr)).append("')");
                     if (i == 0) {
-                        sb.append(" and (left(mobile, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
+                        sb.append(" and (left(mobileNumber, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
                     } else {
-                        sb.append(" or left(mobile, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
+                        sb.append(" or left(mobileNumber, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
                     }
                 }
                 sb.append(")");
@@ -272,13 +279,13 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
         if (!TextUtils.isEmpty(telePhone)) {
             String[] arr = telePhone.split(",");
             if ((boolean) ivTelephone.getTag()) {
-                sb.append(" and officeTel in (").append(stringToString(arr)).append(")");
+                sb.append(" and officeNumber in (").append(stringToString(arr)).append(")");
             } else {
                 for (int i = 0; i < arr.length; i++) {
                     if (i == 0) {
-                        sb.append(" and (left(officeTel, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
+                        sb.append(" and (left(officeNumber, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
                     } else {
-                        sb.append(" or left(officeTel, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
+                        sb.append(" or left(officeNumber, ").append(arr[i].length()).append(") = '").append(arr[i]).append("'");
                     }
                 }
                 sb.append(")");
@@ -288,13 +295,13 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
         if (!TextUtils.isEmpty(email)) {
             String[] arr = email.split(",");
             if ((boolean) ivEmail.getTag()) {
-                sb.append(" and e_mail in (").append(stringToString(arr)).append(")");
+                sb.append(" and email in (").append(stringToString(arr)).append(")");
             } else {
                 for (int i = 0; i < arr.length; i++) {
                     if (i == 0) {
-                        sb.append(" and (e_mail　LIKE '|").append(arr[i]).append("|'");
+                        sb.append(" and (email　LIKE '|").append(arr[i]).append("|'");
                     } else {
-                        sb.append(" OR　e_mail LIKE '|").append(arr[i]).append("|'");
+                        sb.append(" or　email LIKE '|").append(arr[i]).append("|'");
                     }
                 }
                 sb.append(")");
@@ -302,7 +309,9 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
         }
 
         Intent intent = new Intent();
-        intent.putExtra("sql", sb.toString());
+        String sql = sb.toString().replaceFirst(" and", "");
+
+        intent.putExtra("sql", sql);
         setResult(123, intent);
         finish();
     }
@@ -310,9 +319,9 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
     public void switchExact(ImageView view) {
         view.setTag(!(boolean) view.getTag());
         if ((boolean) view.getTag()) {
-            view.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
-        } else {
             view.setImageResource(R.drawable.ic_check_box_black_24dp);
+        } else {
+            view.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
         }
     }
 
@@ -322,11 +331,5 @@ public class UserNormalFilterActivity extends AppCompatActivity implements View.
             end.append("'").append(s).append("',");
         }
         return end.toString().substring(0, end.length() - 1);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }

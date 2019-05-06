@@ -49,7 +49,6 @@ public class AttachmentListAdapter extends BaseAdapter {
         return position;
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

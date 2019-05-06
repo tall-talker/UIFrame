@@ -14,7 +14,10 @@ import com.oridway.www.uiframe.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+/**
+ * 包含标题栏和网格布局
+ */
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final static String TAG = "MainActivity";
 

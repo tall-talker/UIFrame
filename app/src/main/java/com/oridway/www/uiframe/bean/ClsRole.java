@@ -3,12 +3,6 @@ package com.oridway.www.uiframe.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * 角色实体类
- *
- * @author cgl
- * @since 2019/3/28
- */
 public class ClsRole implements Parcelable {
 
     private String RowID;

@@ -23,9 +23,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 选择用户的页面
- * <p>
  * 根据上一个页面传过来的isMultipleEnable判断是否可以多选
+ * 单选页面选中一个条目直接结束并回传
+ * 多选页面选中之后需要提交
+ *
  */
 public class UserSelectActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,10 +67,10 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         mAdapter = new UserNormalListAdapter(mClsNormalUserList, mContext);
         mListView.setAdapter(mAdapter);
 
-        getOffonlineData(20);
+        getOfflineData(20);
     }
 
-    private void getOffonlineData(int num) {
+    private void getOfflineData(int num) {
 
         List<ClsNormalUser> clsNormalUserList = new ArrayList<>();
 

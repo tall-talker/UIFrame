@@ -23,6 +23,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 第一级列表
+ * 1.编辑状态下选中一个条目，会弹出底部操作栏
+ * 2.非编辑状态下选中条目会跳转到下一级
+ * 3.复选框使用ImageView而不是CheckBox
+ */
 public class SectionListActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "SectionListActivity";

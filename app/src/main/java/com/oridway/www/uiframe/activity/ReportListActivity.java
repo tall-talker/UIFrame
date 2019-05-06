@@ -25,11 +25,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ * 编辑状态下长按拖动条目
  * 1.通过ItemTouchHelper.Callback实现长按拖动
- * 2.只有进入编辑状态下才允许拖动和显示复选框和拖动图标
- * 3.通过isEditable的值判断是否编辑状态
- * 4.每次点击编辑按钮即切换编辑状态都要把isEditable的值取反
- * 5.只有选中至少一个条目才会弹出工具栏
+ * 2.通过isEditable的值判断是否编辑状态，初值是false
+ * 3.切换编辑状态要把isEditable的值取反，并改变复选框图标状态
  */
 
 public class ReportListActivity extends AppCompatActivity implements View.OnClickListener {

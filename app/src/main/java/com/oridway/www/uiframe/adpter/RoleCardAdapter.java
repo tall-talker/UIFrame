@@ -12,12 +12,6 @@ import com.oridway.www.uiframe.bean.ClsRole;
 
 import java.util.List;
 
-/**
- * 新建用户页面中的列表选项卡适配器
- *
- * @author cgl
- * @since 2019/4/17
- */
 public class RoleCardAdapter extends BaseAdapter implements View.OnClickListener {
 
     private List<ClsRole> mClsRoleList;

@@ -1,7 +1,6 @@
 package com.oridway.www.uiframe.adpter;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,6 @@ import com.oridway.www.uiframe.R;
 import com.oridway.www.uiframe.bean.ClsRole;
 
 import java.util.List;
-
-import static android.graphics.Color.rgb;
 
 public class RoleSelectAdapter extends BaseAdapter {
 

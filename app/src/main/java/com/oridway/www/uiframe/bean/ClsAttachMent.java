@@ -1,21 +1,8 @@
 package com.oridway.www.uiframe.bean;
 
-import android.net.Uri;
-
-import java.io.File;
-
-/**
- * 上传附件的实体类
- *
- * @author cgl
- * @version 1.1
- * @since 2019/3/11
- */
-
 public class ClsAttachMent {
 
     private String filename;
-    private String uid;
     private String title;
     private String size;
     private String type;
@@ -33,13 +20,6 @@ public class ClsAttachMent {
         this.filename = filename;
     }
 
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
 
     public String getTitle() {
         return title;
@@ -85,7 +65,6 @@ public class ClsAttachMent {
     public String toString() {
         return "ClsAttachMent{" +
                 "filename='" + filename + '\'' +
-                ", uid='" + uid + '\'' +
                 ", title='" + title + '\'' +
                 ", size='" + size + '\'' +
                 ", type='" + type + '\'' +

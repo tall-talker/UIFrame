@@ -2,15 +2,10 @@ package com.oridway.www.uiframe.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,13 +17,10 @@ import com.oridway.www.uiframe.R;
 import com.oridway.www.uiframe.adpter.AttachmentListAdapter;
 import com.oridway.www.uiframe.bean.ClsAttachMent;
 import com.oridway.www.uiframe.bean.ClsNormalUser;
-import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +28,10 @@ import butterknife.ButterKnife;
 import static com.yalantis.ucrop.util.FileUtils.getPath;
 
 /**
+ * 新建一个第一级列表的条目
+ * 1.选择图片和附件都用Intent.ACTION_GET_CONTENT实现
+ * 2.打开文件用Intent.ACTION_VIEW实现
+ * 3.回传的URI需要转化成真实路径
  */
 
 public class SectionNewActivity extends AppCompatActivity implements View.OnClickListener {

@@ -21,6 +21,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 第三级列表，接收第二级列表的传过来的topicID
+ */
 public class ReplyListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "ReplyListActivity";
     @BindView(R.id.reply_list_view)

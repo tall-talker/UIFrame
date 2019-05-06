@@ -15,6 +15,9 @@ import com.oridway.www.uiframe.bean.ClsOnlineReport;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 可拖拽列表的详情
+ */
 public class ReportDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.tv_title_middle)
