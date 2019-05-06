@@ -24,6 +24,7 @@ import butterknife.ButterKnife;
 
 /**
  * 角色默认是多选的
+ * 1.提交数据之后需要刷新列表
  */
 public class RoleSelectActivity extends AppCompatActivity implements View.OnClickListener {
 

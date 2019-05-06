@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
  */
 public class ReplyListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "ReplyListActivity";
+
     @BindView(R.id.reply_list_view)
     ListView mListView;
     @BindView(R.id.tv_title_middle)

@@ -20,6 +20,8 @@ import butterknife.ButterKnife;
  */
 public class ReportDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "ReportDetailActivity";
+
     @BindView(R.id.tv_title_middle)
     TextView title;
     @BindView(R.id.title_left)
@@ -89,6 +91,10 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
 
     private void initListener() {
         backButton.setOnClickListener(this);
+        edit.setOnClickListener(this);
+        delete.setOnClickListener(this);
+        close.setOnClickListener(this);
+        open.setOnClickListener(this);
     }
 
     @Override
@@ -96,6 +102,14 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
 
         if (v.getId() == R.id.title_left) {
             finish();
+        }
+
+        switch (v.getId()){
+            case R.id.edit:
+            case R.id.delete:
+            case R.id.open:
+            case R.id.close:
+
         }
     }
 }

@@ -31,6 +31,7 @@ import butterknife.ButterKnife;
  * 1.包含一个标题栏和ScrollView
  * 2.ScrollView中包含一个定高的ListView
  * 3.需要实现RoleCardAdapter.Callback以删除列表中的条目
+ * 4.提交数据之后需要刷新列表
  */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,6 +49,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     TextView addRole;
     @BindView(R.id.clear_roles)
     TextView clearRole;
+    @BindView(R.id.edit_tv)
+    TextView edit;
 
 
     private Context mContext;
@@ -68,6 +71,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initView() {
         title.setText("主页");
+        edit.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
+        edit.setVisibility(View.VISIBLE);
     }
 
     private void initData() {
@@ -85,6 +90,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         backButton.setOnClickListener(this);
         addRole.setOnClickListener(this);
         clearRole.setOnClickListener(this);
+        edit.setOnClickListener(this);
 
         mAdapter.setmCallback((view, position) -> {
             if (mClsRoleList.size() == 1) {
@@ -123,6 +129,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             mClsRoleList.addAll(getOfflineData(1));
             mAdapter.notifyDataSetChanged();
         }
+
+        if (v.getId() == R.id.edit_tv) {
+            submit();
+        }
+    }
+
+    private void submit() {
+        Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 

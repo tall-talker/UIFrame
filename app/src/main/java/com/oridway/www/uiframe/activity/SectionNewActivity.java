@@ -32,6 +32,7 @@ import static com.yalantis.ucrop.util.FileUtils.getPath;
  * 1.选择图片和附件都用Intent.ACTION_GET_CONTENT实现
  * 2.打开文件用Intent.ACTION_VIEW实现
  * 3.回传的URI需要转化成真实路径
+ * 4.提交数据之后需要刷新列表
  */
 
 public class SectionNewActivity extends AppCompatActivity implements View.OnClickListener {

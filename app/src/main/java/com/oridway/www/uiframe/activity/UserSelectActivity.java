@@ -22,8 +22,9 @@ import butterknife.ButterKnife;
 
 /**
  * 根据上一个页面传过来的isMultipleEnable判断是否可以多选
- * 单选页面选中一个条目直接结束并回传
- * 多选页面选中之后需要提交
+ * 1.单选页面选中一个条目直接结束并回传
+ * 2.多选页面选中之后需要提交
+ * 3.提交数据之后需要刷新列表
  */
 public class UserSelectActivity extends AppCompatActivity implements View.OnClickListener {
 

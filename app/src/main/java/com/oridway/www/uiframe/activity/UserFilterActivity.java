@@ -25,8 +25,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 将用户的输入转换成sql语句，回传给上一个Activity
- * 涉及到精确查询和模糊查询
+ * 1.将用户的输入转换成sql语句
+ * 2.涉及到精确查询和模糊查询
+ * 3.提交数据之后需要刷新列表
  */
 public class UserFilterActivity extends AppCompatActivity implements View.OnClickListener {
 
