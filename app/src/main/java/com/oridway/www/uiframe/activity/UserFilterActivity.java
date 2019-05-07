@@ -119,7 +119,7 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         initListener();
     }
 
-    protected void initData() {
+    private void initData() {
 
         mContext = this;
         title.setText("筛选");
@@ -138,12 +138,12 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    protected void initView() {
+    private void initView() {
         editTv.setVisibility(View.VISIBLE);
         editTv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
     }
 
-    protected void initListener() {
+    private void initListener() {
 
         for (ImageView imageView : imageViewList) {
             imageView.setOnClickListener(this);

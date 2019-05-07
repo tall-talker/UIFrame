@@ -56,7 +56,7 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
         initListener();
     }
 
-    protected void initData() {
+    private void initData() {
 
         mContext = this;
         setIsEditable(false);
@@ -107,14 +107,14 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
         mAdapter.notifyDataSetChanged();
     }
 
-    protected void initView() {
+    private void initView() {
         title.setText("二级列表");
         filter.setVisibility(View.GONE);
         btnDelete.setVisibility(View.GONE);
         edit.setVisibility(View.VISIBLE);
     }
 
-    protected void initListener() {
+    private void initListener() {
 
         btnDelete.setOnClickListener(this);
         edit.setOnClickListener(this);

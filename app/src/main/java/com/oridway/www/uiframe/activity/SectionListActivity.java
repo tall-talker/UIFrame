@@ -69,7 +69,7 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         initListener();
     }
 
-    protected void initData() {
+    private void initData() {
         mContext = this;
         setIsEditable(false);
 
@@ -111,7 +111,7 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         mAdapter.notifyDataSetChanged();
     }
 
-    protected void initView() {
+    private void initView() {
         title.setText("一级列表");
         mToolbar.setVisibility(View.GONE);
 
@@ -121,7 +121,7 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         filter.setVisibility(View.VISIBLE);
     }
 
-    protected void initListener() {
+    private void initListener() {
         back.setOnClickListener(this);
         edit.setOnClickListener(this);
         btnClose.setOnClickListener(this);

@@ -71,7 +71,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         initListener();
     }
 
-    protected void initData() {
+    private void initData() {
         mContext = this;
         getOfflineData(20);
 
@@ -107,7 +107,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    protected void initView() {
+    private void initView() {
         title.setText("可拖拽列表");
         edit.setVisibility(View.VISIBLE);
         hideBottomMenu();
@@ -115,7 +115,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
     }
 
-    protected void initListener() {
+    private void initListener() {
         filter.setOnClickListener(this);
         backButton.setOnClickListener(this);
         edit.setOnClickListener(this);

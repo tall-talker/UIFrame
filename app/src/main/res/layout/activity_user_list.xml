@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <ListView
+        android:id="@+id/normal_user_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="10dp" />
+
+    <LinearLayout
+        android:id="@+id/normal_user_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/user_delete"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/ic_delete_black_24dp"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/user_edit"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_edit_black_24dp"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/user_close"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_person_outline_black_24dp"
+            android:gravity="center"
+            android:text="注销"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/user_open"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_person_black_24dp"
+            android:gravity="center"
+            android:text="激活"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</LinearLayout>

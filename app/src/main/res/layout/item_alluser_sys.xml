@@ -24,7 +24,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:text="编号"
@@ -34,7 +34,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:text="姓名"
@@ -44,7 +44,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:text="部门"
@@ -64,7 +64,7 @@
         <TextView
             android:id="@+id/user_id"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:textColor="@color/black" />
@@ -74,7 +74,7 @@
         <TextView
             android:id="@+id/user_name"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:textColor="@color/black" />
@@ -84,7 +84,7 @@
         <TextView
             android:id="@+id/user_org"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
             android:textColor="@color/black" />

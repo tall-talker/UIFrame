@@ -73,7 +73,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         initListener();
     }
 
-    protected void initData() {
+    private void initData() {
         mContext = this;
 
         mAttachList = new ArrayList<>();
@@ -81,7 +81,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         mListView.setAdapter(mAdapter);
     }
 
-    protected void initView() {
+    private void initView() {
         title.setText("新建板块");
 
         filter.setVisibility(View.VISIBLE);
@@ -91,7 +91,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         edit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
     }
 
-    protected void initListener() {
+    private void initListener() {
 
         back.setOnClickListener(this);
         edit.setOnClickListener(this);

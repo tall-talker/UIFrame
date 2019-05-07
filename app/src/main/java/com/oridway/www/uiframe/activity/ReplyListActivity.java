@@ -57,7 +57,7 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    protected void initData() {
+    private void initData() {
 
         mContext = this;
         setIsEditable(false);
@@ -96,14 +96,14 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
         mAdapter.notifyDataSetChanged();
     }
 
-    protected void initView() {
+    private void initView() {
         title.setText("三级列表");
         filter.setVisibility(View.GONE);
         btnDelete.setVisibility(View.GONE);
         edit.setVisibility(View.VISIBLE);
     }
 
-    protected void initListener() {
+    private void initListener() {
 
         back.setOnClickListener(this);
         edit.setOnClickListener(this);

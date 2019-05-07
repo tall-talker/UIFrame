@@ -57,7 +57,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         initListener();
     }
 
-    protected void initData() {
+    private void initData() {
         mContext = this;
         isMultipleEnable = getIntent().getBooleanExtra("isMultipleEnable", false);
 
@@ -102,13 +102,13 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         mAdapter.notifyDataSetChanged();
     }
 
-    protected void initView() {
+    private void initView() {
         title.setText("选择用户");
         edit.setVisibility(View.GONE);
         filter.setVisibility(View.GONE);
     }
 
-    protected void initListener() {
+    private void initListener() {
         edit.setOnClickListener(this);
 
         mListView.setOnItemClickListener((parent, view, position, id) -> {

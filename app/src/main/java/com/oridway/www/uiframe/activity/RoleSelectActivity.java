@@ -54,16 +54,6 @@ public class RoleSelectActivity extends AppCompatActivity implements View.OnClic
         initListener();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     public void getOfflineData(int num) {
 
         List<ClsRole> clsNormalUsers = new ArrayList<>();
@@ -91,7 +81,7 @@ public class RoleSelectActivity extends AppCompatActivity implements View.OnClic
         mAdapter.notifyDataSetChanged();
     }
 
-    protected void initData() {
+    private void initData() {
 
         mContext = this;
         mClsRoleList = new ArrayList<>();
@@ -101,14 +91,14 @@ public class RoleSelectActivity extends AppCompatActivity implements View.OnClic
         getOfflineData(40);
     }
 
-    protected void initView() {
+    private void initView() {
 
         title.setText("选择角色");
         edit.setVisibility(View.VISIBLE);
         edit.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_check_black_24dp, 0);
     }
 
-    protected void initListener() {
+    private void initListener() {
 
         back.setOnClickListener(this);
         edit.setOnClickListener(this);
