@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oridway.www.uiframe.R;
-import com.oridway.www.uiframe.bean.ClsUserInfo;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,7 +72,6 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
 
     private Context mContext;
     private String userID;
-    private ClsUserInfo clsUserInfo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -120,15 +119,13 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
             finish();
         }
 
+        switch (v.getId()){
 
-        if (v.getId() == R.id.user_edit) {
+            case R.id.user_close:
+            case R.id.user_open:
+            case R.id.user_edit:
+            case R.id.user_delete:
+                Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
         }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }

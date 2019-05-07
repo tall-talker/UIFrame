@@ -25,7 +25,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
-            android:text="内容："
+            android:text="内容"
             android:textColor="@color/black" />
 
         <include layout="@layout/layout_item_divider_horizontal" />
@@ -35,7 +35,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
-            android:text="时间："
+            android:text="时间"
             android:textColor="@color/black" />
 
         <include layout="@layout/layout_item_divider_horizontal" />
@@ -45,7 +45,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
-            android:text="回复人："
+            android:text="回复人"
             android:textColor="@color/black" />
     </LinearLayout>
 

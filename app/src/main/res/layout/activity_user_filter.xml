@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/ghostwhite"
     android:orientation="vertical">
 
     <include layout="@layout/title_bar" />
@@ -67,18 +67,13 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#e1fcf6"
+                
                 android:orientation="horizontal">
 
                 <TextView
@@ -123,12 +118,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -178,12 +168,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -228,18 +213,13 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#e1fcf6"
+                
                 android:orientation="horizontal">
 
                 <TextView
@@ -279,12 +259,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -334,12 +309,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -389,11 +359,13 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
+            <include layout="@layout/layout_item_divider_horizontal"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#e1fcf6"
+                
                 android:orientation="horizontal">
 
                 <TextView
@@ -437,6 +409,8 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
             </LinearLayout>
+
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -486,12 +460,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -563,18 +532,13 @@
             </LinearLayout>
 
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#e1fcf6"
+                
                 android:orientation="horizontal">
 
                 <TextView
@@ -614,12 +578,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -671,19 +630,14 @@
                 </RadioGroup>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include layout="@layout/layout_item_divider_horizontal"/>
 
             <LinearLayout
                 android:id="@+id/ll_off_time"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#e1fcf6"
+                
                 android:orientation="horizontal"
                 android:visibility="gone">
 

@@ -32,7 +32,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="部门名称:"
+                    android:layout_marginStart="10dp"
+                    android:text="部门名称"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -65,7 +66,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="部门代码:"
+                    android:text="部门代码"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -98,7 +100,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="工号:"
+                    android:text="工号"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -130,7 +133,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="用户姓名:"
+                    android:text="用户姓名"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -163,7 +167,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="性别:"
+                    android:text="性别"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -195,7 +200,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="用户类型:"
+                    android:text="用户类型"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -228,7 +234,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="工作证号:"
+                    android:text="工作证号"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -260,7 +267,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="维护时间:"
+                    android:text="维护时间"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -293,7 +301,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="电话号码:"
+                    android:text="电话号码"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -325,7 +334,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="手机号码:"
+                    android:text="手机号码"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -358,7 +368,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="E-mail:"
+                    android:text="E-mail"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -391,7 +402,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="用户名:"
+                    android:text="用户名"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -423,7 +435,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="用户描述:"
+                    android:text="用户描述"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -456,7 +469,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="角色:"
+                    android:text="角色"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -488,7 +502,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="用户状态:"
+                    android:text="用户状态"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -521,7 +536,8 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="启用日期:"
+                    android:text="启用日期"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

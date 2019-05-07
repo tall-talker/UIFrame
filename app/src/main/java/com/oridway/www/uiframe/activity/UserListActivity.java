@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.oridway.www.uiframe.R;
 import com.oridway.www.uiframe.adpter.UserListAdapter;
@@ -215,6 +216,14 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        if(requestCode == 17452 && resultCode == RESULT_OK){
+            refreshData();
+        }
+
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void refreshData() {
+        Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
     }
 }
