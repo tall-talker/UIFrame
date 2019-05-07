@@ -78,15 +78,6 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
 
     private void getData(String bulletinID) {
         Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
-
-        tv1.setText("此处展示数据");
-        tv2.setText("此处展示数据");
-        tv3.setText("此处展示数据");
-        tv4.setText("此处展示数据");
-        tv5.setText("此处展示数据");
-        tv6.setText("此处展示数据");
-        tv7.setText("此处展示数据");
-        tv8.setText("此处展示数据");
     }
 
     private void initListener() {
