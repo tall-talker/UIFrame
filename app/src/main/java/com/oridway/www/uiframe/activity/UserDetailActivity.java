@@ -94,8 +94,7 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void getUserInfo(String userID) {
-
-
+        Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
     }
 
     private void initView() {

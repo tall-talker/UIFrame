@@ -95,12 +95,12 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
             finish();
         }
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.edit:
             case R.id.delete:
             case R.id.open:
             case R.id.close:
-
+                Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
         }
     }
 }
