@@ -1,9 +1,6 @@
 package com.oridway.www.uiframe.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class ClsReply implements Parcelable {
+public class ClsReply  {
 
     private String rowNum;
     private String topicID;
@@ -107,62 +104,4 @@ public class ClsReply implements Parcelable {
     public void setIsCheckBoxVisible(boolean checkBoxVisible) {
         isCheckBoxVisible = checkBoxVisible;
     }
-
-    @Override
-    public String toString() {
-        return "ClsReply{" +
-                "rowNum='" + rowNum + '\'' +
-                ", topicID='" + topicID + '\'' +
-                ", replyID='" + replyID + '\'' +
-                ", replyContent='" + replyContent + '\'' +
-                ", replyTime='" + replyTime + '\'' +
-                ", replyBoutiqueNum='" + replyBoutiqueNum + '\'' +
-                ", replyTopicNum='" + replyTopicNum + '\'' +
-                ", replyManID='" + replyManID + '\'' +
-                ", replyManName='" + replyManName + '\'' +
-                '}';
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.rowNum);
-        dest.writeString(this.topicID);
-        dest.writeString(this.replyID);
-        dest.writeString(this.replyContent);
-        dest.writeString(this.replyTime);
-        dest.writeString(this.replyBoutiqueNum);
-        dest.writeString(this.replyTopicNum);
-        dest.writeString(this.replyManID);
-        dest.writeString(this.replyManName);
-    }
-
-    protected ClsReply(Parcel in) {
-        this.rowNum = in.readString();
-        this.topicID = in.readString();
-        this.replyID = in.readString();
-        this.replyContent = in.readString();
-        this.replyTime = in.readString();
-        this.replyBoutiqueNum = in.readString();
-        this.replyTopicNum = in.readString();
-        this.replyManID = in.readString();
-        this.replyManName = in.readString();
-    }
-
-    public static final Parcelable.Creator<ClsReply> CREATOR = new Parcelable.Creator<ClsReply>() {
-        @Override
-        public ClsReply createFromParcel(Parcel source) {
-            return new ClsReply(source);
-        }
-
-        @Override
-        public ClsReply[] newArray(int size) {
-            return new ClsReply[size];
-        }
-    };
 }

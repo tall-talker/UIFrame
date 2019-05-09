@@ -1,9 +1,6 @@
 package com.oridway.www.uiframe.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class ClsOnlineReport implements Parcelable {
+public class ClsOnlineReport  {
 
     private String bulletinID;
     private String bulletinTime;
@@ -156,52 +153,4 @@ public class ClsOnlineReport implements Parcelable {
                 ", isCheckBoxVisible=" + isCheckBoxVisible +
                 '}';
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.bulletinID);
-        dest.writeString(this.bulletinTime);
-        dest.writeString(this.bulletinTitle);
-        dest.writeString(this.isActive);
-        dest.writeString(this.activeDate);
-        dest.writeString(this.autoCloseDate);
-        dest.writeString(this.modiManID);
-        dest.writeString(this.modiManName);
-        dest.writeString(this.orderNum);
-        dest.writeString(this.onTop);
-        dest.writeString(this.createrID);
-        dest.writeString(this.creater);
-    }
-
-    protected ClsOnlineReport(Parcel in) {
-        this.bulletinID = in.readString();
-        this.bulletinTime = in.readString();
-        this.bulletinTitle = in.readString();
-        this.isActive = in.readString();
-        this.activeDate = in.readString();
-        this.autoCloseDate = in.readString();
-        this.modiManID = in.readString();
-        this.modiManName = in.readString();
-        this.orderNum = in.readString();
-        this.onTop = in.readString();
-        this.createrID = in.readString();
-        this.creater = in.readString();
-    }
-
-    public static final Parcelable.Creator<ClsOnlineReport> CREATOR = new Parcelable.Creator<ClsOnlineReport>() {
-        @Override
-        public ClsOnlineReport createFromParcel(Parcel source) {
-            return new ClsOnlineReport(source);
-        }
-
-        @Override
-        public ClsOnlineReport[] newArray(int size) {
-            return new ClsOnlineReport[size];
-        }
-    };
 }

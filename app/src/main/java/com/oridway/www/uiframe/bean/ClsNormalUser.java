@@ -199,32 +199,6 @@ public class ClsNormalUser implements Parcelable {
     }
 
     @Override
-    public String toString() {
-        return "ClsNormalUser{" +
-                "RowID='" + RowID + '\'' +
-                ", userID='" + userID + '\'' +
-                ", workNumber='" + workNumber + '\'' +
-                ", userType='" + userType + '\'' +
-                ", cName='" + cName + '\'' +
-                ", sysUserName='" + sysUserName + '\'' +
-                ", orgID='" + orgID + '\'' +
-                ", workPos='" + workPos + '\'' +
-                ", officeTel='" + officeTel + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", e_mail='" + e_mail + '\'' +
-                ", isOff='" + isOff + '\'' +
-                ", setOffDate='" + setOffDate + '\'' +
-                ", sysUserDesc='" + sysUserDesc + '\'' +
-                ", cmdEnable='" + cmdEnable + '\'' +
-                ", modiManID='" + modiManID + '\'' +
-                ", modiManName='" + modiManName + '\'' +
-                ", modiTime='" + modiTime + '\'' +
-                ", isCheckBoxVisible=" + isCheckBoxVisible +
-                '}';
-    }
-
-
-    @Override
     public int describeContents() {
         return 0;
     }

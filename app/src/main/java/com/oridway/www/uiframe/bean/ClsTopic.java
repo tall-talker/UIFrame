@@ -3,7 +3,7 @@ package com.oridway.www.uiframe.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ClsTopic implements Parcelable {
+public class ClsTopic  {
 
     private String rowNum;
     private String sectionID;
@@ -224,101 +224,4 @@ public class ClsTopic implements Parcelable {
     public void setIsCheckBoxVisible(boolean checkBoxVisible) {
         isCheckBoxVisible = checkBoxVisible;
     }
-
-    @Override
-    public String toString() {
-        return "ClsSection{" +
-                "rowNum='" + rowNum + '\'' +
-                ", sectionID='" + sectionID + '\'' +
-                ", sectionName='" + sectionName + '\'' +
-                ", sectionManager='" + sectionManager + '\'' +
-                ", topicID='" + topicID + '\'' +
-                ", title='" + title + '\'' +
-                ", topicDesc='" + topicDesc + '\'' +
-                ", createDate='" + createDate + '\'' +
-                ", authorID='" + authorID + '\'' +
-                ", author='" + author + '\'' +
-                ", viewNum='" + viewNum + '\'' +
-                ", replyNum='" + replyNum + '\'' +
-                ", isBoutique='" + isBoutique + '\'' +
-                ", sequence='" + sequence + '\'' +
-                ", isTop='" + isTop + '\'' +
-                ", isRecommend='" + isRecommend + '\'' +
-                ", replyID='" + replyID + '\'' +
-                ", replyContent='" + replyContent + '\'' +
-                ", replyTime='" + replyTime + '\'' +
-                ", replyAuthorID='" + replyAuthorID + '\'' +
-                ", replyAuthorName='" + replyAuthorName + '\'' +
-                ", dCount='" + dCount + '\'' +
-                '}';
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.rowNum);
-        dest.writeString(this.sectionID);
-        dest.writeString(this.sectionName);
-        dest.writeString(this.sectionManager);
-        dest.writeString(this.topicID);
-        dest.writeString(this.title);
-        dest.writeString(this.topicDesc);
-        dest.writeString(this.createDate);
-        dest.writeString(this.authorID);
-        dest.writeString(this.author);
-        dest.writeString(this.viewNum);
-        dest.writeString(this.replyNum);
-        dest.writeString(this.isBoutique);
-        dest.writeString(this.sequence);
-        dest.writeString(this.isTop);
-        dest.writeString(this.isRecommend);
-        dest.writeString(this.replyID);
-        dest.writeString(this.replyContent);
-        dest.writeString(this.replyTime);
-        dest.writeString(this.replyAuthorID);
-        dest.writeString(this.replyAuthorName);
-        dest.writeString(this.dCount);
-    }
-
-    protected ClsTopic(Parcel in) {
-        this.rowNum = in.readString();
-        this.sectionID = in.readString();
-        this.sectionName = in.readString();
-        this.sectionManager = in.readString();
-        this.topicID = in.readString();
-        this.title = in.readString();
-        this.topicDesc = in.readString();
-        this.createDate = in.readString();
-        this.authorID = in.readString();
-        this.author = in.readString();
-        this.viewNum = in.readString();
-        this.replyNum = in.readString();
-        this.isBoutique = in.readString();
-        this.sequence = in.readString();
-        this.isTop = in.readString();
-        this.isRecommend = in.readString();
-        this.replyID = in.readString();
-        this.replyContent = in.readString();
-        this.replyTime = in.readString();
-        this.replyAuthorID = in.readString();
-        this.replyAuthorName = in.readString();
-        this.dCount = in.readString();
-    }
-
-    public static final Parcelable.Creator<ClsTopic> CREATOR = new Parcelable.Creator<ClsTopic>() {
-        @Override
-        public ClsTopic createFromParcel(Parcel source) {
-            return new ClsTopic(source);
-        }
-
-        @Override
-        public ClsTopic[] newArray(int size) {
-            return new ClsTopic[size];
-        }
-    };
 }

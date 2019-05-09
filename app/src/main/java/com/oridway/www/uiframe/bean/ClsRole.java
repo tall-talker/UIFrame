@@ -154,27 +154,6 @@ public class ClsRole implements Parcelable {
         return isChecked;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "ClsRole{" +
-                "sysRoleID='" + sysRoleID + '\'' +
-                ", sysRoleName='" + sysRoleName + '\'' +
-                ", sysRoleDesc='" + sysRoleDesc + '\'' +
-                ", sysRoleType='" + sysRoleType + '\'' +
-                ", sysRoleTypeName='" + sysRoleTypeName + '\'' +
-                ", orgID='" + orgID + '\'' +
-                ", orgName='" + orgName + '\'' +
-                ", isOff='" + isOff + '\'' +
-                ", setOffDate='" + setOffDate + '\'' +
-                ", createrID='" + createrID + '\'' +
-                ", creater='" + creater + '\'' +
-                ", modiManID='" + modiManID + '\'' +
-                ", modiManName='" + modiManName + '\'' +
-                '}';
-    }
-
     @Override
     public int describeContents() {
         return 0;

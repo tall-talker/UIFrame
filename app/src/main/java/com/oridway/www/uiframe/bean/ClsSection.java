@@ -3,7 +3,7 @@ package com.oridway.www.uiframe.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ClsSection implements Parcelable {
+public class ClsSection  {
 
     private String isClosed;
     private String closeDate;
@@ -197,66 +197,4 @@ public class ClsSection implements Parcelable {
     public void setIsCheckBoxVisible(boolean checkBoxVisible) {
         isCheckBoxVisible = checkBoxVisible;
     }
-
-    protected ClsSection(Parcel in) {
-        isClosed = in.readString();
-        closeDate = in.readString();
-        sectionID = in.readString();
-        sectionName = in.readString();
-        sectionType = in.readString();
-        sectionDesc = in.readString();
-        sectionLogo = in.readString();
-        sectionManagerID = in.readString();
-        sectionManager = in.readString();
-        createDate = in.readString();
-        topics = in.readString();
-        replys = in.readString();
-        topicID = in.readString();
-        replyID = in.readString();
-        replyContent = in.readString();
-        replyTime = in.readString();
-        authorID = in.readString();
-        authorName = in.readString();
-        dCount = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(isClosed);
-        dest.writeString(closeDate);
-        dest.writeString(sectionID);
-        dest.writeString(sectionName);
-        dest.writeString(sectionType);
-        dest.writeString(sectionDesc);
-        dest.writeString(sectionLogo);
-        dest.writeString(sectionManagerID);
-        dest.writeString(sectionManager);
-        dest.writeString(createDate);
-        dest.writeString(topics);
-        dest.writeString(replys);
-        dest.writeString(topicID);
-        dest.writeString(replyID);
-        dest.writeString(replyContent);
-        dest.writeString(replyTime);
-        dest.writeString(authorID);
-        dest.writeString(authorName);
-        dest.writeString(dCount);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<ClsSection> CREATOR = new Creator<ClsSection>() {
-        @Override
-        public ClsSection createFromParcel(Parcel in) {
-            return new ClsSection(in);
-        }
-
-        @Override
-        public ClsSection[] newArray(int size) {
-            return new ClsSection[size];
-        }
-    };
 }
