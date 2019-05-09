@@ -20,7 +20,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 可拖拽列表的适配器，需要实现OnlineReportListCallback.ItemTouchMoveListener
+ * 可拖拽列表的适配器，
+ * 1.需要实现OnlineReportListCallback.ItemTouchMoveListener
+ * 2.持有一个接口用于传递position
  */
 public class RecyclerAdapter extends RecyclerView.Adapter implements OnlineReportListCallback.ItemTouchMoveListener, View.OnClickListener {
 

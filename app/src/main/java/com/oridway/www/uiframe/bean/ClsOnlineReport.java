@@ -131,26 +131,4 @@ public class ClsOnlineReport  {
     public void setIsCheckBoxVisible(boolean isCheckBoxVisible) {
         this.isCheckBoxVisible = isCheckBoxVisible;
     }
-
-
-
-    @Override
-    public String toString() {
-        return "ClsOnlineReport{" +
-                ", bulletinID='" + bulletinID + '\'' +
-                ", bulletinTime='" + bulletinTime + '\'' +
-                ", bulletinTitle='" + bulletinTitle + '\'' +
-                ", isActive='" + isActive + '\'' +
-                ", activeDate='" + activeDate + '\'' +
-                ", autoCloseDate='" + autoCloseDate + '\'' +
-                ", modiManID='" + modiManID + '\'' +
-                ", modiManName='" + modiManName + '\'' +
-                ", orderNum='" + orderNum + '\'' +
-                ", onTop='" + onTop + '\'' +
-                ", createrID='" + createrID + '\'' +
-                ", creater='" + creater + '\'' +
-                ", isChecked=" + isChecked +
-                ", isCheckBoxVisible=" + isCheckBoxVisible +
-                '}';
-    }
 }

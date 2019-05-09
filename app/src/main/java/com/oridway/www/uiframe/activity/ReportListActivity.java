@@ -29,6 +29,8 @@ import butterknife.ButterKnife;
  * 1.通过ItemTouchHelper.Callback实现长按拖动
  * 2.通过isEditable的值判断是否编辑状态，初值是false
  * 3.切换编辑状态要把isEditable的值取反，并改变复选框图标状态
+ * 4.在编辑状态下，按返回键回到非编辑状态
+ * 5.RecyclerView的点击事件通过RecyclerAdapter.Callback实现
  */
 
 public class ReportListActivity extends AppCompatActivity implements View.OnClickListener {
