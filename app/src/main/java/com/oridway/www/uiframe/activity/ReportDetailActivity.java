@@ -67,7 +67,7 @@ public class ReportDetailActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initView() {
-        title.setText("详情页");
+        title.setText("详情");
     }
 
     private void initData() {

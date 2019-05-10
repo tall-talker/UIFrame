@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
+        android:background="@color/white"
         android:rowCount="1">
 
         <TextView
@@ -35,7 +36,7 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:drawableTop="@drawable/ic_format_line_spacing_black_24dp"
-            android:text="其它列表" />
+            android:text="用户列表" />
 
     </GridLayout>
 
