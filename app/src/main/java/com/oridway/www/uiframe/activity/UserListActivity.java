@@ -161,7 +161,6 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
 
         if (v.getId() == R.id.title_left) {
-
             if (getIsEditable()) {
                 switchEditable();
             } else {
@@ -183,6 +182,13 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
             startActivityForResult(intent, 17452);
         }
 
+        switch (v.getId()) {
+            case R.id.user_delete:
+            case R.id.user_edit:
+            case R.id.user_close:
+            case R.id.user_open:
+                Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -216,7 +222,7 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode == 17452 && resultCode == RESULT_OK){
+        if (requestCode == 17452 && resultCode == RESULT_OK) {
             refreshData();
         }
 

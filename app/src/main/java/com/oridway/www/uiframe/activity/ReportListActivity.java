@@ -3,6 +3,7 @@ package com.oridway.www.uiframe.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +57,8 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
     TextView close;
     @BindView(R.id.btn_top)
     TextView top;
+    @BindView(R.id.toolbar)
+    LinearLayout mToolbar;
 
     private Context mContext;
     private boolean isEditable;
@@ -112,8 +116,9 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
     private void initView() {
         title.setText("可拖拽列表");
         edit.setVisibility(View.VISIBLE);
-        hideBottomMenu();
+//        hideBottomMenu();
 
+        mToolbar.setVisibility(View.GONE);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
     }
 
@@ -140,11 +145,13 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                         for (int i = 0; i < mClsOnlineReportList.size(); i++) {
                             ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
                             if (onlineReport.getIsChecked()) {
-                                showBottomMenu();
+//                                showBottomMenu();
+                             mToolbar.setVisibility(View.VISIBLE);
                                 break;
                             }
                             if (i == mClsOnlineReportList.size() - 1) {
-                                hideBottomMenu();
+//                                hideBottomMenu();
+                                mToolbar.setVisibility(View.GONE);
                             }
                         }
                     } else {
@@ -190,21 +197,6 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-
-    private void hideBottomMenu() {
-        delete.setVisibility(View.GONE);
-        top.setVisibility(View.GONE);
-        release.setVisibility(View.GONE);
-        close.setVisibility(View.GONE);
-    }
-
-    private void showBottomMenu() {
-        delete.setVisibility(View.VISIBLE);
-        top.setVisibility(View.VISIBLE);
-        release.setVisibility(View.VISIBLE);
-        close.setVisibility(View.VISIBLE);
-    }
-
     private void switchEditable() {
 
         setIsEditable(!getIsEditable());
@@ -215,8 +207,8 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         }
 
         mAdapter.notifyDataSetChanged();
-        hideBottomMenu();
-
+//        hideBottomMenu();
+        mToolbar.setVisibility(View.GONE);
         setRecyclerViewDraggable(getIsEditable());
     }
 

@@ -89,7 +89,7 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
         mContext = this;
         Intent intent = getIntent();
         userID = intent.getStringExtra("userID");
-        title.setText("用户详情");
+        title.setText("详情页");
         getUserInfo(userID);
     }
 
