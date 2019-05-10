@@ -66,6 +66,15 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         mListView.setAdapter(mAdapter);
 
         getOfflineData(20);
+
+        if (isMultipleEnable) {
+            edit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
+            edit.setVisibility(View.VISIBLE);
+
+            for (ClsNormalUser user : mClsNormalUserList) {
+                user.setIsCheckBoxVisible(true);
+            }
+        }
     }
 
     private void getOfflineData(int num) {
@@ -104,8 +113,6 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
 
     private void initView() {
         title.setText("选择用户");
-        edit.setVisibility(View.GONE);
-        filter.setVisibility(View.GONE);
     }
 
     private void initListener() {
@@ -140,7 +147,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
             }
             Intent intent = new Intent();
             intent.putParcelableArrayListExtra("users", normalUserList);
-            setResult(123, intent);
+            setResult(RESULT_OK, intent);
             finish();
         }
     }

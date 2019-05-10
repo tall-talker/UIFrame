@@ -87,20 +87,6 @@ public class TopicListActivity extends AppCompatActivity implements View.OnClick
             clsTopic.setTitle(" title" + i);
             clsTopic.setTopicDesc(" topicDesc" + i);
             clsTopic.setCreateDate(" createDate" + i);
-            clsTopic.setAuthorID(" authorID" + i);
-            clsTopic.setAuthor(" author" + i);
-            clsTopic.setViewNum(" viewNum" + i);
-            clsTopic.setReplyNum(" replyNum" + i);
-            clsTopic.setIsBoutique(" isBoutique" + i);
-            clsTopic.setSequence(" sequence" + i);
-            clsTopic.setIsTop(" isTop" + i);
-            clsTopic.setIsRecommend(" isRecommend" + i);
-            clsTopic.setReplyID(" replyID" + i);
-            clsTopic.setReplyContent(" replyContent" + i);
-            clsTopic.setReplyTime(" replyTime" + i);
-            clsTopic.setReplyAuthorID(" replyAuthorID" + i);
-            clsTopic.setReplyAuthorName(" replyAuthorName" + i);
-            clsTopic.setdCount(" dCount" + i);
             clsTopicList.add(clsTopic);
         }
         mClsTopicList.addAll(clsTopicList);

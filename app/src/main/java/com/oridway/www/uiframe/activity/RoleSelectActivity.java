@@ -119,15 +119,15 @@ public class RoleSelectActivity extends AppCompatActivity implements View.OnClic
         }
 
         if (v.getId() == R.id.edit_tv) {
-            ArrayList<ClsRole> checkedList = new ArrayList<>();
+            ArrayList<ClsRole> roles = new ArrayList<>();
             for (ClsRole clsRole : mClsRoleList) {
                 if (clsRole.getIsChecked()) {
-                    checkedList.add(clsRole);
+                    roles.add(clsRole);
                 }
             }
             Intent intent = new Intent(mContext, RegisterActivity.class);
-            intent.putParcelableArrayListExtra("checkedList", checkedList);
-            setResult(321, intent);
+            intent.putParcelableArrayListExtra("roles", roles);
+            setResult(RESULT_OK, intent);
             finish();
         }
     }

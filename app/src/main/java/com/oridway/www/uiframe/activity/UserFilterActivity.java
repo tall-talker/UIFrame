@@ -1,13 +1,11 @@
 package com.oridway.www.uiframe.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.oridway.www.uiframe.R;
+import com.oridway.www.uiframe.bean.ClsNormalUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ * 筛选页面
  * 1.将用户的输入转换成sql语句
  * 2.涉及到精确查询和模糊查询
  * 3.提交数据之后需要刷新列表
@@ -162,6 +162,9 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
                 line.setVisibility(View.GONE);
             }
         });
+
+        tvUserName.setOnClickListener(this);
+        tvCreator.setOnClickListener(this);
     }
 
     @Override
@@ -175,6 +178,17 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
             submit();
         }
 
+        if (view.getId() == R.id.tv_user_name) {
+            Intent intent = new Intent(mContext, UserSelectActivity.class);
+            intent.putExtra("isMultipleEnable", true);
+            startActivityForResult(intent, 15476);
+        }
+
+        if (view.getId() == R.id.tv_creator) {
+            Intent intent = new Intent(mContext, UserSelectActivity.class);
+            startActivityForResult(intent, 13685);
+        }
+
         switch (view.getId()) {
 
             case R.id.iv_number:
@@ -184,8 +198,6 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
             case R.id.iv_mobile:
             case R.id.iv_telephone:
             case R.id.iv_email:
-
-                Log.e(TAG, "switchExact");
                 switchExact((ImageView) view);
         }
     }
@@ -336,5 +348,28 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
             end.append("'").append(s).append("',");
         }
         return end.toString().substring(0, end.length() - 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (requestCode == 15476 && resultCode == RESULT_OK) {
+
+            ArrayList<ClsNormalUser> users = data.getParcelableArrayListExtra("users");
+            StringBuilder sb = new StringBuilder();
+
+            for (ClsNormalUser user : users) {
+                sb.append(user.getCName()).append(",");
+            }
+
+            tvUserName.setText(sb.toString());
+        }
+
+        if (requestCode == 13685 && resultCode == RESULT_OK) {
+            ClsNormalUser user = data.getParcelableExtra("user");
+            tvCreator.setText(user.getCName());
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

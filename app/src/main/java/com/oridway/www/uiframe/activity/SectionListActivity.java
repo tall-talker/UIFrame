@@ -94,16 +94,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
             clsSection.setSectionLogo("sectionLogo" + i);
             clsSection.setSectionManagerID("sectionManagerID" + i);
             clsSection.setSectionManager("sectionManager" + i);
-            clsSection.setCreateDate("createDate" + i);
-            clsSection.setTopics("topics" + i);
-            clsSection.setReplys("replys" + i);
-            clsSection.setTopicID("topicID" + i);
-            clsSection.setReplyID("replyID" + i);
-            clsSection.setReplyContent("replyContent" + i);
-            clsSection.setReplyTime("replyTime" + i);
-            clsSection.setAuthorID("authorID" + i);
-            clsSection.setAuthorName("authorName" + i);
-            clsSection.setdCount("dCount" + i);
             clsSectionList.add(clsSection);
         }
 
@@ -221,7 +211,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void refreshData() {
-
         Toast.makeText(mContext, "在此处调用接口！", Toast.LENGTH_SHORT).show();
     }
 }

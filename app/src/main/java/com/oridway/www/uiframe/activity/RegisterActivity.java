@@ -169,9 +169,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        if (requestCode == 123 && resultCode == 321) {
+        if (requestCode == 123 && resultCode == RESULT_OK) {
             assert data != null;
-            mClsRoleList.addAll(data.getParcelableArrayListExtra("checkedList"));
+            mClsRoleList.addAll(data.getParcelableArrayListExtra("roles"));
             mAdapter.notifyDataSetChanged();
         }
         super.onActivityResult(requestCode, resultCode, data);

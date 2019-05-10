@@ -89,7 +89,6 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
         mContext = this;
         Intent intent = getIntent();
         userID = intent.getStringExtra("userID");
-        title.setText("详情");
         getUserInfo(userID);
     }
 
@@ -98,8 +97,7 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initView() {
-        edit.setVisibility(View.GONE);
-        filter.setVisibility(View.GONE);
+        title.setText("详情");
     }
 
     private void initListener() {
@@ -112,14 +110,11 @@ public class UserDetailActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-
-
         if (v.getId() == R.id.title_left) {
             finish();
         }
 
         switch (v.getId()){
-
             case R.id.user_close:
             case R.id.user_open:
             case R.id.user_edit:
