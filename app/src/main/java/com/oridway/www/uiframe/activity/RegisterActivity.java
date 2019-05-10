@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initView() {
-        title.setText("主页");
+        title.setText("新建用户");
         edit.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
         edit.setVisibility(View.VISIBLE);
     }

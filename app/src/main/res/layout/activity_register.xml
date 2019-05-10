@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical">
 
 
@@ -34,7 +35,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@+id/et_user_name"
-                    android:text="姓名：" />
+                    android:text="姓名" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -54,7 +55,7 @@
 
                 <TextView
                     style="@style/UserInputTitle"
-                    android:text="性别：" />
+                    android:text="性别" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -103,7 +104,7 @@
 
                 <TextView
                     style="@style/UserInputTitle"
-                    android:text="出生日期：" />
+                    android:text="出生日期" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -145,7 +146,7 @@
 
                 <TextView
                     style="@style/UserInputTitle"
-                    android:text="部门：" />
+                    android:text="部门" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -178,7 +179,7 @@
 
                 <TextView
                     style="@style/UserInputTitle"
-                    android:text="岗位：" />
+                    android:text="岗位" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -222,7 +223,7 @@
 
                 <TextView
                     style="@style/UserInputTitle"
-                    android:text="部门：" />
+                    android:text="部门" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -260,7 +261,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_mobile"
-                    android:text="手机号码：" />
+                    android:text="手机号码" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -277,7 +278,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_telephone"
-                    android:text="办公电话：" />
+                    android:text="办公电话" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -294,7 +295,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_email"
-                    android:text="Email：" />
+                    android:text="Email" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -321,7 +322,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_login_name"
-                    android:text="用户名：" />
+                    android:text="用户名" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -338,7 +339,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_password"
-                    android:text="登陆密码：" />
+                    android:text="登陆密码" />
 
                 <include layout="@layout/layout_item_divider_vertical" />
 
@@ -355,7 +356,7 @@
                 <TextView
                     style="@style/UserInputTitle"
                     android:labelFor="@id/user_confirm"
-                    android:text="确认密码：" />
+                    android:text="确认密码" />
 
 
                 <include layout="@layout/layout_item_divider_vertical" />
@@ -372,7 +373,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:gravity="center_vertical"
-                android:text="用户角色："
+                android:text="用户角色"
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
 
@@ -388,7 +389,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="2"
                     android:gravity="center_vertical"
-                    android:text="名称："
+                    android:text="名称"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -397,7 +398,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="2"
                     android:gravity="center_vertical"
-                    android:text="分级类型："
+                    android:text="分级类型"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -406,7 +407,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="操作："
+                    android:text="操作"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
             </LinearLayout>

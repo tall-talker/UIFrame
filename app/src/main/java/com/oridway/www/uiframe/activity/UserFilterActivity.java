@@ -104,6 +104,8 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
     TextView title;
     @BindView(R.id.ll_off_time)
     LinearLayout offTime;
+    @BindView(R.id.line)
+    View line;
 
     private List<ImageView> imageViewList;
     private Context mContext;
@@ -154,8 +156,10 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         rgStatus.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.rb_status_off) {
                 offTime.setVisibility(View.VISIBLE);
+                line.setVisibility(View.VISIBLE);
             } else {
                 offTime.setVisibility(View.GONE);
+                line.setVisibility(View.GONE);
             }
         });
     }

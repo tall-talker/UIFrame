@@ -14,8 +14,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <include layout="@layout/layout_item_divider_horizontal" />
 
@@ -34,8 +34,8 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-                <include layout="@layout/layout_item_divider_vertical"/>
-                
+                <include layout="@layout/layout_item_divider_vertical" />
+
                 <EditText
                     android:id="@+id/et_number"
                     android:layout_width="0dp"
@@ -67,13 +67,13 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
@@ -85,7 +85,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/et_work_number"
@@ -118,7 +118,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/et_sys_name"
@@ -168,7 +168,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -185,7 +185,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -213,13 +213,13 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
@@ -231,7 +231,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -259,7 +259,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -276,7 +276,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/et_post"
@@ -309,7 +309,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -326,7 +326,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/et_mobile"
@@ -359,13 +359,13 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
@@ -377,7 +377,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/et_tele_phone"
@@ -410,7 +410,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -427,7 +427,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <EditText
                     android:id="@+id/et_email"
@@ -460,7 +460,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -477,7 +477,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -532,13 +532,13 @@
             </LinearLayout>
 
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
@@ -550,7 +550,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -578,7 +578,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -595,7 +595,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <RadioGroup
                     android:id="@+id/rg_status"
@@ -630,14 +630,14 @@
                 </RadioGroup>
             </LinearLayout>
 
-            <include layout="@layout/layout_item_divider_horizontal"/>
+            <include layout="@layout/layout_item_divider_horizontal" />
 
             <LinearLayout
                 android:id="@+id/ll_off_time"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                
+
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -650,7 +650,7 @@
                     android:textColor="#212121"
                     android:textSize="14sp" />
 
-               <include layout="@layout/layout_item_divider_vertical"/>
+                <include layout="@layout/layout_item_divider_vertical" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -704,12 +704,10 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#e5e5e5" />
+            <include
+                android:id="@+id/line"
+                android:visibility="gone"
+                layout="@layout/layout_item_divider_horizontal" />
         </LinearLayout>
     </ScrollView>
 
