@@ -75,6 +75,7 @@ public class RoleCardAdapter extends BaseAdapter implements View.OnClickListener
 
         holder.name.setText(clsRole.getSysRoleName());
         holder.desc.setText(clsRole.getSysRoleTypeName());
+        holder.delete.setText("删除");
         holder.delete.setOnClickListener(this);
         holder.delete.setTag(position);
 

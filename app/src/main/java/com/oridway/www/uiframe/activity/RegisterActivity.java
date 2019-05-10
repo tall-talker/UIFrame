@@ -146,20 +146,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         List<ClsRole> clsNormalUsers = new ArrayList<>();
         for (int i = 0; i < num; i++) {
             ClsRole clsRole = new ClsRole();
-            clsRole.setRowID("RowID:" + i);
-            clsRole.setSysRoleID("sysRoleID:" + i);
-            clsRole.setSysRoleName("sysRoleName:" + i);
-            clsRole.setSysRoleDesc("sysRoleDesc:" + i);
-            clsRole.setSysRoleType("sysRoleType:" + i);
-            clsRole.setSysRoleTypeName("sysRoleTypeName:" + i);
-            clsRole.setOrgID("orgID:" + i);
-            clsRole.setOrgName("orgName:" + i);
-            clsRole.setIsOff("isOff:" + i);
-            clsRole.setSetOffDate("setOffDate:" + i);
-            clsRole.setCreaterID("createrID:" + i);
-            clsRole.setCreater("creater:" + i);
-            clsRole.setModiManID("modiManID:" + i);
-            clsRole.setModiManName("modiManName:" + i);
+            clsRole.setRowID("RowID " + i);
+            clsRole.setSysRoleID("RoleID " + i);
+            clsRole.setSysRoleName("RoleName " + i);
+            clsRole.setSysRoleDesc("RoleDesc " + i);
+            clsRole.setSysRoleType("RoleType " + i);
+            clsRole.setSysRoleTypeName("RoleTypeName " + i);
+            clsRole.setOrgID("orgID " + i);
+            clsRole.setOrgName("orgName " + i);
+            clsRole.setIsOff("isOff " + i);
+            clsRole.setSetOffDate("setOffDate " + i);
+            clsRole.setCreaterID("createrID " + i);
+            clsRole.setCreater("creater " + i);
+            clsRole.setModiManID("modiManID " + i);
+            clsRole.setModiManName("modiManName " + i);
             clsNormalUsers.add(clsRole);
         }
 

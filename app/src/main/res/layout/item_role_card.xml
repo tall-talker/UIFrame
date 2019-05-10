@@ -12,7 +12,6 @@
         android:layout_margin="5dp"
         android:layout_weight="2"
         android:gravity="center_vertical"
-        android:text="角色名称"
         android:textColor="@color/black" />
 
     <TextView
@@ -22,7 +21,6 @@
         android:layout_margin="5dp"
         android:layout_weight="2"
         android:gravity="center_vertical"
-        android:text="角色类型"
         android:textColor="@color/black" />
 
     <TextView
@@ -33,7 +31,6 @@
         android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="删除"
         android:textColor="@color/black" />
 
 </LinearLayout>
