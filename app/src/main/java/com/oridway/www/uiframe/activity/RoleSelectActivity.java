@@ -66,14 +66,7 @@ public class RoleSelectActivity extends AppCompatActivity implements View.OnClic
             clsRole.setSysRoleDesc("sysRoleDesc:" + i);
             clsRole.setSysRoleType("sysRoleType:" + i);
             clsRole.setSysRoleTypeName("sysRoleTypeName:" + i);
-            clsRole.setOrgID("orgID:" + i);
-            clsRole.setOrgName("orgName:" + i);
-            clsRole.setIsOff("isOff:" + i);
-            clsRole.setSetOffDate("setOffDate:" + i);
-            clsRole.setCreaterID("createrID:" + i);
             clsRole.setCreater("creater:" + i);
-            clsRole.setModiManID("modiManID:" + i);
-            clsRole.setModiManName("modiManName:" + i);
             clsNormalUsers.add(clsRole);
         }
 

@@ -152,14 +152,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             clsRole.setSysRoleDesc("RoleDesc " + i);
             clsRole.setSysRoleType("RoleType " + i);
             clsRole.setSysRoleTypeName("RoleTypeName " + i);
-            clsRole.setOrgID("orgID " + i);
-            clsRole.setOrgName("orgName " + i);
-            clsRole.setIsOff("isOff " + i);
-            clsRole.setSetOffDate("setOffDate " + i);
-            clsRole.setCreaterID("createrID " + i);
-            clsRole.setCreater("creater " + i);
-            clsRole.setModiManID("modiManID " + i);
-            clsRole.setModiManName("modiManName " + i);
+            clsRole.setCreater("creater:" + i);
             clsNormalUsers.add(clsRole);
         }
 

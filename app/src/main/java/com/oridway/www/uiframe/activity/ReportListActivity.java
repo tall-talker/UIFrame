@@ -116,7 +116,6 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
     private void initView() {
         title.setText("可拖拽列表");
         edit.setVisibility(View.VISIBLE);
-//        hideBottomMenu();
 
         mToolbar.setVisibility(View.GONE);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
@@ -145,12 +144,10 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                         for (int i = 0; i < mClsOnlineReportList.size(); i++) {
                             ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
                             if (onlineReport.getIsChecked()) {
-//                                showBottomMenu();
                              mToolbar.setVisibility(View.VISIBLE);
                                 break;
                             }
                             if (i == mClsOnlineReportList.size() - 1) {
-//                                hideBottomMenu();
                                 mToolbar.setVisibility(View.GONE);
                             }
                         }
