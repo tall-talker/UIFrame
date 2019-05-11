@@ -107,6 +107,7 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
 
         back.setOnClickListener(this);
         edit.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             ClsReply clsReply = mClsReplyList.get(position);
             if (getIsEditable()) {
@@ -146,7 +147,7 @@ public class ReplyListActivity extends AppCompatActivity implements View.OnClick
             switchEditable();
         }
 
-        if (v.getId() == R.id.btn_delete_topic) {
+        if (v.getId() == R.id.btn_delete_reply) {
             Toast.makeText(mContext, "在此处调用接口", Toast.LENGTH_SHORT).show();
         }
     }

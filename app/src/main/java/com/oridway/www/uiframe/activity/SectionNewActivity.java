@@ -84,9 +84,6 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
     private void initView() {
         title.setText("新建板块");
 
-        filter.setVisibility(View.VISIBLE);
-        filter.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_delete_black_24dp, 0, 0, 0);
-
         edit.setVisibility(View.VISIBLE);
         edit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
     }
@@ -199,20 +196,18 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
     private void addAttach(Intent data) {
         File file = new File(getPath(mContext, data.getData()));
 
-        if (file.length() / 1024 / 1024.0 < 5.0) {
-            ClsAttachMent clsAttachMent = new ClsAttachMent();
-            String name = file.getName();
-            String type = name.split("\\.")[1];
-            String size = file.length() + "";
-            clsAttachMent.setSize(size);
-            clsAttachMent.setFilename(name);
-            clsAttachMent.setUri(data.getData().toString());
+        ClsAttachMent clsAttachMent = new ClsAttachMent();
+        String name = file.getName();
+        String type = name.split("\\.")[1];
+        String size = file.length() + "";
+        clsAttachMent.setSize(size);
+        clsAttachMent.setFilename(name);
+        clsAttachMent.setUri(data.getData().toString());
 
-            uploadFile(file.getPath());
+        uploadFile(file.getPath());
 
-            mAttachList.add(clsAttachMent);
-            mAdapter.notifyDataSetChanged();
-        }
+        mAttachList.add(clsAttachMent);
+        mAdapter.notifyDataSetChanged();
     }
 
     private void uploadFile(String path) {
