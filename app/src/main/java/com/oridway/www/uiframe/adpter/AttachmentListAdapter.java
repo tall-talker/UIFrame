@@ -20,6 +20,7 @@ public class AttachmentListAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private Callback mCallback;
 
+    //自定义回调接口，用于传值
     public interface Callback {
 
         void onClick(View view, int position);
@@ -70,9 +71,12 @@ public class AttachmentListAdapter extends BaseAdapter {
         holder.name.setText(clsAttachMent.getFilename());
         long length = Long.parseLong(clsAttachMent.getSize());
         holder.size.setText(length / 1024 + "KB");
+
+        //将position放在tag里面
         holder.delete.setTag(position);
 
         holder.delete.setOnClickListener(v -> {
+            //触发点击事件的时候将position回传
             mCallback.onClick(v, (Integer) v.getTag());
         });
         return convertView;

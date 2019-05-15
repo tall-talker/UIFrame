@@ -79,17 +79,25 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     private void initData() {
         mContext = this;
+
+        mClsOnlineReportList = new ArrayList<>();
+        mAdapter = new RecyclerAdapter(mClsOnlineReportList);
+        mRecyclerView.setAdapter(mAdapter);
+
         getOfflineData(20);
 
+        //初始状态为非编辑模式
         setIsEditable(false);
+        //初始化拖动接口
         OnlineReportListCallback callback = new OnlineReportListCallback(mAdapter);
         itemTouchHelper = new ItemTouchHelper(callback);
 
+        //初始状态为不可拖动
         setRecyclerViewDraggable(false);
     }
 
+    //生成模拟数据
     private void getOfflineData(int num) {
-
         List<ClsOnlineReport> clsOnlineReportList = new ArrayList<>();
         for (int i = 0; i < num; i++) {
             ClsOnlineReport onlineReport = new ClsOnlineReport();
@@ -99,18 +107,11 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
             onlineReport.setBulletinTime("bulletinTime " + i);
             onlineReport.setBulletinTitle("bulletinTitle " + i);
             onlineReport.setCreater("creater " + i);
-            onlineReport.setCreaterID("creater " + i);
-            onlineReport.setIsActive("isActive " + i);
-            onlineReport.setModiManID("modiManID " + i);
-            onlineReport.setModiManName("modiManName " + i);
-            onlineReport.setOnTop("onTop " + i);
-            onlineReport.setOrderNum("oderNum " + i);
             clsOnlineReportList.add(onlineReport);
         }
 
-        mClsOnlineReportList = clsOnlineReportList;
-        mAdapter = new RecyclerAdapter(mClsOnlineReportList);
-        mRecyclerView.setAdapter(mAdapter);
+        mClsOnlineReportList.addAll(clsOnlineReportList);
+        mAdapter.notifyDataSetChanged();
     }
 
     private void initView() {
@@ -118,6 +119,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         edit.setVisibility(View.VISIBLE);
 
         mToolbar.setVisibility(View.GONE);
+        //设置RecyclerView的布局
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
     }
 
@@ -130,11 +132,14 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         close.setOnClickListener(this);
         top.setOnClickListener(this);
 
+
         mAdapter.setmCallback((v, position) -> {
             switch (v.getId()) {
                 case R.id.view_parent_1:
                 case R.id.view_parent_2:
                     ClsOnlineReport clsOnlineReport = mClsOnlineReportList.get(position);
+
+                    //在编辑模式下，点击条目切换显示checkbox，并且判断选中条目的数量，
                     if (getIsEditable()) {
                         if (clsOnlineReport.getIsCheckBoxVisible()) {
                             clsOnlineReport.setIsChecked(!clsOnlineReport.getIsChecked());
@@ -142,6 +147,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                         }
 
                         for (int i = 0; i < mClsOnlineReportList.size(); i++) {
+                            //数量等于0，隐藏工具条，否则显示工具条
                             ClsOnlineReport onlineReport = mClsOnlineReportList.get(i);
                             if (onlineReport.getIsChecked()) {
                              mToolbar.setVisibility(View.VISIBLE);
@@ -152,6 +158,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                             }
                         }
                     } else {
+                        //在非编辑模式下，点击条目直接跳转详情页，并把bulletinID传过去
                         Intent intent = new Intent(mContext, ReportDetailActivity.class);
                         intent.putExtra("bulletinID", clsOnlineReport.getBulletinID());
                         startActivityForResult(intent, 16371);
@@ -162,7 +169,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onBackPressed() {
-
+        //编辑状态下，按返回键回到非编辑状态，否则退出
         if (getIsEditable()) {
             switchEditable();
         } else {
@@ -172,6 +179,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        //编辑状态下，按返回键回到非编辑状态，否则退出
         if (v.getId() == R.id.title_left) {
             if (getIsEditable()) {
                 switchEditable();
@@ -179,12 +187,13 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
                 finish();
             }
         }
+        //点击编辑按钮切换编辑状态
         if (v.getId() == R.id.edit_tv) {
             switchEditable();
         }
 
+        //工具条的按钮对应不同的接口
         switch (v.getId()) {
-
             case R.id.btn_top:
             case R.id.btn_close:
             case R.id.btn_release:
@@ -196,16 +205,20 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
 
     private void switchEditable() {
 
+        //将属性取反
         setIsEditable(!getIsEditable());
 
+        //遍历列表并赋值
         for (ClsOnlineReport clsOnlineReport : mClsOnlineReportList) {
             clsOnlineReport.setIsCheckBoxVisible(getIsEditable());
             clsOnlineReport.setIsChecked(false);
         }
 
+        //通知适配器刷新
         mAdapter.notifyDataSetChanged();
-//        hideBottomMenu();
+        //隐藏工具条
         mToolbar.setVisibility(View.GONE);
+        //切换拖动状态
         setRecyclerViewDraggable(getIsEditable());
     }
 
@@ -217,6 +230,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
         this.isEditable = isEditable;
     }
 
+    //设置能否拖动
     private void setRecyclerViewDraggable(boolean draggable) {
         if (draggable) {
             itemTouchHelper.attachToRecyclerView(mRecyclerView);
@@ -228,6 +242,7 @@ public class ReportListActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
+        //当详情页的数据有变动则刷新列表
         if (requestCode == 16371 && resultCode == RESULT_OK) {
             refreshData();
         }

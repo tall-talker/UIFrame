@@ -62,6 +62,7 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_list);
+        //使用ButterKnife绑定控件
         ButterKnife.bind(this);
 
         initView();
@@ -71,8 +72,10 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
 
     private void initData() {
         mContext = this;
+        //初始状态为非编辑
         setIsEditable(false);
 
+        //初始化数据源
         mClsSectionList = new ArrayList<>();
         mAdapter = new SectionListAdapter(mClsSectionList, mContext);
         mListView.setAdapter(mAdapter);
@@ -80,6 +83,7 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
         initOfflineData(10);
     }
 
+    //生成模拟数据
     private void initOfflineData(int num) {
         List<ClsSection> clsSectionList = new ArrayList<>();
 
@@ -123,21 +127,25 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
             ClsSection clsSection = mClsSectionList.get(position);
 
             if (getIsEditable()) {
+                //编辑状态下，点击条目checkbox为显示选中
                 if (clsSection.getIsCheckBoxVisible()) {
                     clsSection.setIsChecked(!clsSection.getIsChecked());
                     mAdapter.notifyDataSetChanged();
                 }
+                //有一个条目被选中就弹出工具条
                 for (int i = 0; i < mClsSectionList.size(); i++) {
                     ClsSection section = mClsSectionList.get(i);
                     if (section.getIsChecked()) {
                         mToolbar.setVisibility(View.VISIBLE);
                         break;
                     }
+                    //否则隐藏工具条
                     if (i == mClsSectionList.size() - 1) {
                         mToolbar.setVisibility(View.GONE);
                     }
                 }
             } else {
+                //非编辑状态下，点击条目直接跳转
                 String sectionID = clsSection.getSectionID();
                 Intent intent = new Intent(mContext, TopicListActivity.class);
                 intent.putExtra("sectionID", sectionID);
@@ -148,6 +156,8 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        //编辑状态下点击返回回到非编辑状态
+        //非编辑状态下直接退出
         if (v.getId() == R.id.title_left) {
             if (getIsEditable()) {
                 switchEditable();
@@ -155,15 +165,19 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
                 finish();
             }
         }
+
+        //点击编辑按钮切换编辑状态
         if (v.getId() == R.id.edit_tv) {
             switchEditable();
         }
 
+        //新建页面
         if (v.getId() == R.id.filter_tv) {
             Intent intent = new Intent(mContext, SectionNewActivity.class);
             startActivityForResult(intent, 15874);
         }
 
+        //点击工具条不同按钮调用不同接口
         switch (v.getId()) {
             case R.id.discuss_delete:
             case R.id.discuss_close:
@@ -173,6 +187,8 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
+    //编辑状态下点击返回回到非编辑状态
+    //非编辑状态下直接退出
     public void onBackPressed() {
         if (getIsEditable()) {
             switchEditable();
@@ -190,13 +206,18 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void switchEditable() {
+        //将属性取反
         setIsEditable(!getIsEditable());
 
+        //遍历并修改数据源
         for (ClsSection clsSection : mClsSectionList) {
             clsSection.setIsCheckBoxVisible(getIsEditable());
             clsSection.setIsChecked(false);
         }
+
+        //通知适配器刷新
         mAdapter.notifyDataSetChanged();
+        //隐藏工具条
         mToolbar.setVisibility(View.GONE);
     }
 

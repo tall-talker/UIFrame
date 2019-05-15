@@ -76,6 +76,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
     private void initData() {
         mContext = this;
 
+        //初始化数据源
         mAttachList = new ArrayList<>();
         mAdapter = new AttachmentListAdapter(mAttachList, mContext);
         mListView.setAdapter(mAdapter);
@@ -123,14 +124,11 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
         if (v.getId() == R.id.title_left) {
             finish();
         }
-        if (v.getId() == R.id.filter_tv) {
-            finish();
-        }
         if (v.getId() == R.id.edit_tv) {
             submit();
         }
         if (v.getId() == R.id.section_new_logo) {
-            //打开手机原生的浏览器，并且选取内容
+            //打开手机原生的文件管理器，并且选取内容
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             //文件类型为图片
@@ -182,7 +180,7 @@ public class SectionNewActivity extends AppCompatActivity implements View.OnClic
             sectionManager.setText(user.getCName());
         }
 
-        //遍立已经上传的附件列表，如果已经存在就弹出提示
+        //遍历已经上传的附件列表，如果已经存在就弹出提示
         if (requestCode == 12367 && resultCode == RESULT_OK) {
             String uri = data.getData().toString();
 
