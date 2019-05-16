@@ -16,11 +16,9 @@ import java.util.List;
 public class UserSelectAdapter extends BaseAdapter {
 
     private List<ClsNormalUser> mList;
-    private Context mContext;
     private LayoutInflater mInflater;
 
-    public UserSelectAdapter(List<ClsNormalUser> list, Context context) {
-        mContext = context;
+    public UserSelectAdapter(List<ClsNormalUser> list, Context mContext) {
         mList = list;
         mInflater = LayoutInflater.from(mContext);
     }
@@ -62,13 +60,14 @@ public class UserSelectAdapter extends BaseAdapter {
         holder.name.setText(clsNormalUser.getCName());
         holder.org.setText(clsNormalUser.getOrgName());
 
-
+        //是否显示checkbox
         if (clsNormalUser.getIsCheckBoxVisible()) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
             holder.checkBox.setVisibility(View.GONE);
         }
 
+        //条目是否选中
         if (clsNormalUser.getIsChecked()) {
             holder.checkBox.setImageResource(R.drawable.ic_check_box_black_24dp);
         } else {

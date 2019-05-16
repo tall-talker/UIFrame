@@ -59,6 +59,7 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
+        //初始化ButterKnife
         ButterKnife.bind(this);
 
         initView();
@@ -71,6 +72,7 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
         mContext = this;
         isEditable = false;
 
+        //初始化数据源
         mClsNormalUserList = new ArrayList<>();
         mAdapter = new UserListAdapter(mClsNormalUserList, mContext);
         mListView.setAdapter(mAdapter);
@@ -78,14 +80,12 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
         getOfflineData(20);
     }
 
+    //生成模拟数据
     private void getOfflineData(int num) {
-
         List<ClsNormalUser> clsNormalUserList = new ArrayList<>();
 
         for (int i = 0; i < num; i++) {
             ClsNormalUser clsNormalUser = new ClsNormalUser();
-
-            clsNormalUser.setRowID("RowID " + i);
             clsNormalUser.setUserID("userID " + i);
             clsNormalUser.setWorkNumber("workNumber " + i);
             clsNormalUser.setUserType("userType " + i);
@@ -94,16 +94,6 @@ public class UserListActivity extends AppCompatActivity implements View.OnClickL
             clsNormalUser.setSysUserName("sysUserName " + i);
             clsNormalUser.setOrgID("orgID " + i);
             clsNormalUser.setWorkPos("workPos " + i);
-            clsNormalUser.setOfficeTel("officeTel " + i);
-            clsNormalUser.setMobile("mobile " + i);
-            clsNormalUser.setE_mail("e_mail " + i);
-            clsNormalUser.setIsOff("isOff " + i);
-            clsNormalUser.setSetOffDate("setOffDate " + i);
-            clsNormalUser.setSysUserDesc("sysUserDesc " + i);
-            clsNormalUser.setCmdEnable("cmdEnable " + i);
-            clsNormalUser.setModiManID("modiManID " + i);
-            clsNormalUser.setModiManName("modiManName " + i);
-            clsNormalUser.setModiTime("modiTime " + i);
 
             clsNormalUserList.add(clsNormalUser);
         }

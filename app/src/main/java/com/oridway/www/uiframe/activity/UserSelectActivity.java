@@ -50,6 +50,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal_user_list);
+        //初始化ButterKnife
         ButterKnife.bind(this);
 
         initView();
@@ -59,14 +60,18 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
 
     private void initData() {
         mContext = this;
+
+        //通过源页面传过来的值来生成对应的视图，默认是单选
         isMultipleEnable = getIntent().getBooleanExtra("isMultipleEnable", false);
 
+        //初始化数据源
         mClsNormalUserList = new ArrayList<>();
         mAdapter = new UserSelectAdapter(mClsNormalUserList, mContext);
         mListView.setAdapter(mAdapter);
 
         getOfflineData(20);
 
+        //多选页面要显示提交按钮和checkbox
         if (isMultipleEnable) {
             edit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_send_black_24dp, 0, 0, 0);
             edit.setVisibility(View.VISIBLE);
@@ -77,14 +82,11 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //生成模拟数据
     private void getOfflineData(int num) {
-
         List<ClsNormalUser> clsNormalUserList = new ArrayList<>();
-
         for (int i = 0; i < num; i++) {
             ClsNormalUser clsNormalUser = new ClsNormalUser();
-
-            clsNormalUser.setRowID("RowID " + i);
             clsNormalUser.setUserID("userID " + i);
             clsNormalUser.setWorkNumber("workNumber " + i);
             clsNormalUser.setUserType("userType " + i);
@@ -93,20 +95,9 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
             clsNormalUser.setSysUserName("sysUserName " + i);
             clsNormalUser.setOrgID("orgID " + i);
             clsNormalUser.setWorkPos("workPos " + i);
-            clsNormalUser.setOfficeTel("officeTel " + i);
-            clsNormalUser.setMobile("mobile " + i);
-            clsNormalUser.setE_mail("e_mail " + i);
-            clsNormalUser.setIsOff("isOff " + i);
-            clsNormalUser.setSetOffDate("setOffDate " + i);
-            clsNormalUser.setSysUserDesc("sysUserDesc " + i);
-            clsNormalUser.setCmdEnable("cmdEnable " + i);
-            clsNormalUser.setModiManID("modiManID " + i);
-            clsNormalUser.setModiManName("modiManName " + i);
-            clsNormalUser.setModiTime("modiTime " + i);
-
             clsNormalUserList.add(clsNormalUser);
         }
-
+        //数据填充后要同时适配器刷新视图
         mClsNormalUserList.addAll(clsNormalUserList);
         mAdapter.notifyDataSetChanged();
     }
@@ -121,12 +112,15 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             ClsNormalUser clsNormalUser = mClsNormalUserList.get(position);
             if (isMultipleEnable) {
+                //多选状态下点击选中当前条目
                 if (clsNormalUser.getIsCheckBoxVisible()) {
                     clsNormalUser.setIsChecked(!clsNormalUser.getIsChecked());
                     mAdapter.notifyDataSetChanged();
                 }
             } else {
+                //单选状态下点击结束当前页并回传值
                 Intent intent = new Intent();
+                //实体类要实现序列化接口Parcelable
                 intent.putExtra("user", clsNormalUser);
                 setResult(RESULT_OK, intent);
                 finish();
@@ -138,6 +132,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
 
+        //点击提交按钮将选中的值回传并结束当前页
         if (v.getId() == R.id.edit_tv) {
             ArrayList<ClsNormalUser> normalUserList = new ArrayList<>();
             for (ClsNormalUser normalUser : mClsNormalUserList) {
@@ -146,6 +141,7 @@ public class UserSelectActivity extends AppCompatActivity implements View.OnClic
                 }
             }
             Intent intent = new Intent();
+            //实体类要实现序列化接口Parcelable
             intent.putParcelableArrayListExtra("users", normalUserList);
             setResult(RESULT_OK, intent);
             finish();

@@ -115,7 +115,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
 
         if (v.getId() == R.id.title_left) {
-            setResult(111);
             finish();
         }
 

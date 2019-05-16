@@ -72,14 +72,6 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
     EditText etEmail;
     @BindView(R.id.iv_email)
     ImageView ivEmail;
-    @BindView(R.id.tv_birth_start)
-    TextView tvBirthStart;
-    @BindView(R.id.iv_birth_date1)
-    ImageView ivBirthDate1;
-    @BindView(R.id.tv_birth_end)
-    TextView tvBirthEnd;
-    @BindView(R.id.iv_birth_date2)
-    ImageView ivBirthDate2;
     @BindView(R.id.tv_creator)
     TextView tvCreator;
     @BindView(R.id.iv_creator)
@@ -92,14 +84,6 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
     RadioButton rbStatusOff;
     @BindView(R.id.rg_status)
     RadioGroup rgStatus;
-    @BindView(R.id.tv_off_start)
-    TextView tvOffStart;
-    @BindView(R.id.iv_off_start)
-    ImageView ivOffStart;
-    @BindView(R.id.tv_off_end)
-    TextView tvOffEnd;
-    @BindView(R.id.iv_off_end)
-    ImageView ivOffEnd;
     @BindView(R.id.tv_title_middle)
     TextView title;
     @BindView(R.id.ll_off_time)
@@ -126,6 +110,7 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         mContext = this;
         title.setText("筛选");
 
+        //将所有的ImageView实例存进list
         imageViewList = new ArrayList<>();
         imageViewList.add(ivNumber);
         imageViewList.add(ivMobile);
@@ -135,6 +120,8 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         imageViewList.add(ivTelephone);
         imageViewList.add(ivEmail);
 
+        //初始化ImageView，把状态放进tag里面
+        // 所有的ImageView都是未选中状态
         for (ImageView imageView : imageViewList) {
             imageView.setTag(false);
         }
@@ -147,12 +134,12 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
 
     private void initListener() {
 
+        //给ImageView设置监听
         for (ImageView imageView : imageViewList) {
             imageView.setOnClickListener(this);
         }
 
-        titleLeft.setOnClickListener(this);
-        editTv.setOnClickListener(this);
+        //单选按钮设置监听
         rgStatus.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.rb_status_off) {
                 offTime.setVisibility(View.VISIBLE);
@@ -163,6 +150,8 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        titleLeft.setOnClickListener(this);
+        editTv.setOnClickListener(this);
         tvUserName.setOnClickListener(this);
         tvCreator.setOnClickListener(this);
     }
@@ -178,19 +167,21 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
             submit();
         }
 
+        //选择用户，这里是多选
         if (view.getId() == R.id.tv_user_name) {
             Intent intent = new Intent(mContext, UserSelectActivity.class);
             intent.putExtra("isMultipleEnable", true);
             startActivityForResult(intent, 15476);
         }
 
+        //选择用户，这里是单选
         if (view.getId() == R.id.tv_creator) {
             Intent intent = new Intent(mContext, UserSelectActivity.class);
             startActivityForResult(intent, 13685);
         }
 
+        //点击checkbox的动作
         switch (view.getId()) {
-
             case R.id.iv_number:
             case R.id.iv_work_number:
             case R.id.iv_sys_name:
@@ -202,6 +193,8 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //拼接sql语句，并回传给上一个页面然后结束此页
+    //字段仅供参考
     public void submit() {
         StringBuilder sb = new StringBuilder("where");
         String number = etNumber.getText().toString();
@@ -333,6 +326,7 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
         finish();
     }
 
+    //切换checkbox状态
     public void switchExact(ImageView view) {
         view.setTag(!(boolean) view.getTag());
         if ((boolean) view.getTag()) {
@@ -351,17 +345,16 @@ public class UserFilterActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
+    //回传值的处理
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         if (requestCode == 15476 && resultCode == RESULT_OK) {
-
             ArrayList<ClsNormalUser> users = data.getParcelableArrayListExtra("users");
             StringBuilder sb = new StringBuilder();
 
             for (ClsNormalUser user : users) {
                 sb.append(user.getCName()).append(",");
             }
-
             tvUserName.setText(sb.toString());
         }
 
