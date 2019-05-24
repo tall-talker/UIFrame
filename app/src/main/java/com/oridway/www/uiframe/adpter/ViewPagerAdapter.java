@@ -40,8 +40,8 @@ public class ViewPagerAdapter extends PagerAdapter implements View.OnClickListen
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-        return false;
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view == object;
     }
 
     @NonNull
@@ -53,6 +53,7 @@ public class ViewPagerAdapter extends PagerAdapter implements View.OnClickListen
         imageView.setImageResource(mList.get(realPosition));
         imageView.setOnClickListener(this);
         imageView.setTag(realPosition);
+        container.addView(imageView);
 
         return imageView;
     }

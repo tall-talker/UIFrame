@@ -1,13 +1,17 @@
 package com.oridway.www.uiframe.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,12 +53,25 @@ public class IndexActivity extends AppCompatActivity {
     TextView self;
     @BindView(R.id.toolbar)
     LinearLayout toolbar;
+    @BindView(R.id.sv)
+    ScrollView scrollView;
 
     private Context mContext;
     private List<Integer> mImageList;
     private List<Candidate> mCandidateList;
     private ViewPagerAdapter mPagerAdapter;
     private CandidateListAdapter mListAdapter;
+
+    @SuppressLint("HandlerLeak")
+    private Handler handler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+
+            vp.setCurrentItem(vp.getCurrentItem() + 1);
+            handler.sendEmptyMessageDelayed(0x123, 2000);
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,6 +96,8 @@ public class IndexActivity extends AppCompatActivity {
 
         getListData(10);
         getPagerData();
+
+        handler.sendEmptyMessageDelayed(0x123, 2000);
     }
 
     private void getPagerData() {
@@ -91,15 +110,16 @@ public class IndexActivity extends AppCompatActivity {
         mImageList.add(R.drawable.bm6);
 
         mPagerAdapter.notifyDataSetChanged();
+        vp.setCurrentItem(mPagerAdapter.getCount() / 2);
     }
 
     private void getListData(int num) {
 
         for (int i = 0; i < num; i++) {
             Candidate candidate = new Candidate();
-            candidate.setName("name: " + i);
-            candidate.setInfo("info: " + i);
-            candidate.setTrait("trait: " + i);
+            candidate.setName("name: " + 1111111111);
+            candidate.setInfo("info: " + 1111111111);
+            candidate.setTrait("trait: " + 1111111111);
             mCandidateList.add(candidate);
         }
 
@@ -107,7 +127,8 @@ public class IndexActivity extends AppCompatActivity {
     }
 
     private void initView() {
-
+        tvTitleMiddle.setText("轮播列表");
+        scrollView.smoothScrollTo(0, 0);
     }
 
     private void intListener() {

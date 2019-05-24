@@ -85,7 +85,6 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
 
     //生成模拟数据
     private void initOfflineData(int num) {
-        List<ClsSection> clsSectionList = new ArrayList<>();
 
         for (int i = 0; i < num; i++) {
             ClsSection clsSection = new ClsSection();
@@ -98,10 +97,9 @@ public class SectionListActivity extends AppCompatActivity implements View.OnCli
             clsSection.setSectionLogo("sectionLogo" + i);
             clsSection.setSectionManagerID("sectionManagerID" + i);
             clsSection.setSectionManager("sectionManager" + i);
-            clsSectionList.add(clsSection);
+            mClsSectionList.add(clsSection);
         }
 
-        mClsSectionList.addAll(clsSectionList);
         mAdapter.notifyDataSetChanged();
     }
 

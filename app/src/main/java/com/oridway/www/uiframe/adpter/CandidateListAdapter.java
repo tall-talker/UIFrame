@@ -11,6 +11,7 @@ import com.oridway.www.uiframe.bean.Candidate;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CandidateListAdapter extends BaseAdapter {
@@ -23,7 +24,7 @@ public class CandidateListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return mList.size();
     }
 
     @Override
@@ -58,8 +59,11 @@ public class CandidateListAdapter extends BaseAdapter {
     }
 
     class ViewHolder {
+        @BindView(R.id.name)
         TextView name;
+        @BindView(R.id.info)
         TextView info;
+        @BindView(R.id.trait)
         TextView trait;
 
         ViewHolder(View view) {

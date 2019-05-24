@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:drawableTop="@drawable/ic_drag_handle_black_24dp"
-            android:text="轮播首页" />
+            android:text="轮播列表" />
 
     </GridLayout>
 
