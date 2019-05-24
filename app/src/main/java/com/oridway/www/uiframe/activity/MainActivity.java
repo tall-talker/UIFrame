@@ -10,6 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.oridway.www.uiframe.R;
+import com.oridway.www.uiframe.adpter.CandidateListAdapter;
+import com.oridway.www.uiframe.adpter.ViewPagerAdapter;
+import com.oridway.www.uiframe.bean.Candidate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,11 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView btn3;
     @BindView(R.id.btn4)
     TextView btn4;
-    @BindView(R.id.btn5)
-    TextView btn5;
 
     private Context mContext;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         initData();
         initListener();
+
     }
 
     private void initView() {
@@ -62,18 +66,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
         backButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
 
-        if (view.getId() == R.id.btn5) {
-            startActivity(new Intent(mContext, UserListActivity.class));
-        }
-
         if (view.getId() == R.id.btn4) {
-            startActivity(new Intent(mContext, ReportListActivity.class));
+            startActivity(new Intent(mContext, IndexActivity.class));
         }
 
         if (view.getId() == R.id.btn3) {
