@@ -38,6 +38,21 @@
             android:drawableTop="@drawable/ic_format_line_spacing_black_24dp"
             android:text="用户列表" />
 
+        <TextView
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:drawableTop="@drawable/ic_drag_handle_black_24dp"
+            android:text="可拖拽列表" />
+
+        <TextView
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:drawableTop="@drawable/ic_format_line_spacing_black_24dp"
+            android:text="用户列表" />
     </GridLayout>
 
 </LinearLayout>
