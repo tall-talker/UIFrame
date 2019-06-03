@@ -24,6 +24,39 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginStart="30dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/index_icon"/>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/index_icon"/>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/index_icon"/>
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginEnd="30dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/index_icon"/>
+    </LinearLayout>
+
     <com.oridway.www.uiframe.utils.ListViewForScrollView
         android:id="@+id/lvfsv"
         android:layout_width="match_parent"
