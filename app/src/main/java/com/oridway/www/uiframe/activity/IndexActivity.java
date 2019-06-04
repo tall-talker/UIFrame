@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -27,7 +28,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class IndexActivity extends AppCompatActivity {
+public class IndexActivity extends AppCompatActivity implements View.OnClickListener{
 
     @BindView(R.id.title_left)
     ImageView titleLeft;
@@ -55,6 +56,8 @@ public class IndexActivity extends AppCompatActivity {
     LinearLayout toolbar;
     @BindView(R.id.sv)
     ScrollView scrollView;
+    @BindView(R.id.ivs)
+    LinearLayout ivs;
 
     private Context mContext;
     private List<Integer> mImageList;
@@ -67,8 +70,9 @@ public class IndexActivity extends AppCompatActivity {
 
         @Override
         public void handleMessage(Message msg) {
-
+            //每次将当前的位置加1，也就是向右滑动一次
             vp.setCurrentItem(vp.getCurrentItem() + 1);
+            //递归无限循环调用
             handler.sendEmptyMessageDelayed(0x123, 2000);
         }
     };
@@ -84,8 +88,8 @@ public class IndexActivity extends AppCompatActivity {
         intListener();
     }
 
+    //初始化数据源，固定写法 1.实例化容器 2.实例化适配器 3.设置适配器
     private void initData() {
-
         mContext = this;
         mImageList = new ArrayList<>();
         mCandidateList = new ArrayList<>();
@@ -97,11 +101,12 @@ public class IndexActivity extends AppCompatActivity {
         getListData(10);
         getPagerData();
 
+        //间隔2秒发送一次信息
         handler.sendEmptyMessageDelayed(0x123, 2000);
     }
 
+    //生成ViewPager数据源
     private void getPagerData() {
-
         mImageList.add(R.drawable.bm1);
         mImageList.add(R.drawable.bm2);
         mImageList.add(R.drawable.bm3);
@@ -110,16 +115,17 @@ public class IndexActivity extends AppCompatActivity {
         mImageList.add(R.drawable.bm6);
 
         mPagerAdapter.notifyDataSetChanged();
+        //初始的位置在正中间
         vp.setCurrentItem(mPagerAdapter.getCount() / 2);
     }
 
+    //生成ListView数据源
     private void getListData(int num) {
-
         for (int i = 0; i < num; i++) {
             Candidate candidate = new Candidate();
-            candidate.setName("name: " + 1111111111);
-            candidate.setInfo("info: " + 1111111111);
-            candidate.setTrait("trait: " + 1111111111);
+            candidate.setName("姓名:尼尔斯·亨利克·戴维·玻尔");
+            candidate.setInfo("职业:学者,物理学家,足球运动员");
+            candidate.setTrait("成就:哥本哈根学派的创始人,1922年获得诺贝尔物理学奖");
             mCandidateList.add(candidate);
         }
 
@@ -131,10 +137,30 @@ public class IndexActivity extends AppCompatActivity {
         scrollView.smoothScrollTo(0, 0);
     }
 
+    //初始化监听
     private void intListener() {
-
         mPagerAdapter.setmCallback((v, position) -> {
             Toast.makeText(mContext, "position: " + position, Toast.LENGTH_SHORT).show();
         });
+
+        lvfsv.setOnItemClickListener((parent, view, position, id) -> {
+            Toast.makeText(mContext, "position: " + position, Toast.LENGTH_SHORT).show();
+        });
+
+        for (int i = 0; i < 4; i++) {
+            ivs.getChildAt(i).setOnClickListener(this);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.iv1:
+            case R.id.iv2:
+            case R.id.iv3:
+            case R.id.iv4:
+                Toast.makeText(mContext, "此处跳转", Toast.LENGTH_SHORT).show();
+        }
     }
 }

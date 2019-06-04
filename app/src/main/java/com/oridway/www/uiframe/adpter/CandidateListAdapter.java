@@ -1,6 +1,5 @@
 package com.oridway.www.uiframe.adpter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CandidateListAdapter extends BaseAdapter {
-
-    private static String TAG = "CandidateListAdapter";
 
     private List<Candidate> mList;
     public CandidateListAdapter(List<Candidate> mList) {
